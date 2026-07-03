@@ -1,0 +1,341 @@
+{
+  "generated_at": "2026-07-03T12:41:00-04:00",
+  "vendors": [
+    {
+      "vendor_name": "Stripe",
+      "program_name": "Stripe Partner Ecosystem",
+      "website": "https://stripe.com/partners",
+      "partner_types": ["Referral", "Solution / SI", "ISV / Embedded", "Technology partner", "Consulting partner"],
+      "tiers": ["Stripe Partner", "Premier Partner"],
+      "revenue_share_model": "Custom / negotiated. SaaS platforms using Stripe Connect are eligible for a 'revenue sharing' program on processing volume; Premier Partner (SaaS track) requires at least $1M in partnership revenue for buy-rate platforms or $300M in payment volume for referral-model platforms. Services-track partners earn referral/co-sell support rather than disclosed percentages. Exact rev-share percentages are not publicly disclosed. ([Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
+      "fx_markup_transparency": "Not publicly detailed for partners. Stripe discloses over 125+ global payment methods and currency support in its core payments docs, but does not publish standardized FX markup disclosure requirements for partners or end-customers on its partner pages. ([Stripe Sessions 2025 product update](https://stripe.com/blog/top-product-updates-sessions-2025))",
+      "cross_border_coverage": "135+ currencies accepted; 40+ countries with full Stripe account support (with additional 'Preview' markets); 125+ local payment methods including stablecoins and real-time payment rails like Pix and UPI. ([Stripe currencies docs](https://docs.stripe.com/currencies); [Stripe Sessions 2025 update](https://stripe.com/blog/top-product-updates-sessions-2025); [Red Stag Fulfillment country guide](https://redstagfulfillment.com/how-many-countries-does-stripe-operate-in/))",
+      "embedded_finance_capabilities": "Yes. Stripe Connect enables embedded payments, payouts, and marketplace/platform account management; Stripe also offers Issuing (card issuing), Treasury (embedded banking/accounts), and 'Managed Payments' (merchant-of-record offering announced 2025) covering tax compliance, fraud/disputes, and checkout. ([Stripe Sessions 2025 update](https://stripe.com/blog/top-product-updates-sessions-2025))",
+      "api_first": "Yes. Stripe's entire partner ecosystem is built around API integration (Payment Intents, Connect, Checkout, Payment Element, webhooks). ([Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
+      "deal_registration": "Yes. Services-track Partner and Premier Partner tiers both have 'Deal registration to request co-selling support' as a stated benefit. ([Stripe Services partners docs](https://docs.stripe.com/partners/services))",
+      "mdf_available": "Yes. Both Partner and Premier tiers in the Services track are eligible to request market development funds (MDF); Premier Partners in the SaaS track get MDF as an added benefit. ([Stripe Services partners docs](https://docs.stripe.com/partners/services); [Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
+      "annual_partner_fee": "No standard published fee for the core Partner Ecosystem; one third-party affiliate resource cites a legacy 'Stripe Verified Partner Program' with a $250/year fee, but this is not corroborated on Stripe's current official pages. ([Wise blog on Stripe affiliate program](https://wise.com/gb/blog/stripe-affiliate-program))",
+      "ecosystem_size": "Not disclosed as a specific partner count on official pages; described as 'thousands of trusted partners around the world.' ([Stripe Partner Ecosystem page](https://stripe.com/partners))",
+      "recent_program_changes": [
+        {"date": "2026-04", "change": "Stripe restructured the Partner Ecosystem into a streamlined two-tier model (Stripe Partner and Premier Partner) across four tracks (Services, SaaS platforms, Apps, Payment methods), raising baseline standards for technical expertise, business impact, and customer success.", "source": "https://docs.stripe.com/partners"},
+        {"date": "2026-Q2", "change": "Seven new partner specializations launched: Agentic Commerce, Radar, Terminal, Retail, Media, Financial Services, and Travel & Hospitality.", "source": "https://www.linkedin.com/pulse/q2-2026-newsletter-stripe-partner-ecosystem-0z8xe"},
+        {"date": "2026-Q2", "change": "Launch of the Stripe Partner Solutions Program, moving partners from custom implementations to repeatable industry solutions on a 70/30 prebuilt-to-customizable model; partners on this model reportedly grew revenue 20% faster year-over-year.", "source": "https://www.linkedin.com/pulse/q2-2026-newsletter-stripe-partner-ecosystem-0z8xe"},
+        {"date": "2025-05", "change": "At Stripe Sessions 2025, Stripe previewed Stripe Orchestration (multi-processor management), announced Managed Payments (merchant-of-record offering), and expanded to 125+ global payment methods including stablecoins and real-time rails like Pix and UPI.", "source": "https://stripe.com/blog/top-product-updates-sessions-2025"}
+      ],
+      "best_fit_icp": "SaaS platforms embedding payments",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Stripe Partner Ecosystem", "url": "https://stripe.com/partners"},
+        {"label": "Stripe Partner Ecosystem docs (tiers, tracks)", "url": "https://docs.stripe.com/partners"},
+        {"label": "Stripe SaaS platform partners docs", "url": "https://docs.stripe.com/partners/platforms"},
+        {"label": "Stripe Services partners docs", "url": "https://docs.stripe.com/partners/services"},
+        {"label": "Stripe Q2 2026 partner newsletter (LinkedIn)", "url": "https://www.linkedin.com/pulse/q2-2026-newsletter-stripe-partner-ecosystem-0z8xe"},
+        {"label": "Stripe Sessions 2025 product updates", "url": "https://stripe.com/blog/top-product-updates-sessions-2025"},
+        {"label": "Stripe supported currencies docs", "url": "https://docs.stripe.com/currencies"}
+      ]
+    },
+    {
+      "vendor_name": "Adyen",
+      "program_name": "Adyen Partner Program",
+      "website": "https://www.adyen.com/partners",
+      "partner_types": ["Technology partner", "Consulting partner", "Solution / SI"],
+      "tiers": ["Partner (badged/approved)", "Premier", "Premier Plus"],
+      "revenue_share_model": "Custom / negotiated. Technology partners 'may also be eligible for revenue-sharing opportunities based on merchant transaction volume'; Service partners can be eligible for implementation funds; a separate referral program rewards partners for bringing new customers or leads. Specific percentages are not publicly disclosed. ([Adyen Partner Program launch announcement](https://www.adyen.com/press-and-media/partner-program-launch))",
+      "fx_markup_transparency": "Partial. Adyen markets 'transparent, straightforward' pricing without hidden fees for its Adyen for Platforms product (per third-party analysis), and for Dynamic Currency Conversion Adyen recently expanded support to 25 additional currencies, but Adyen's own partner pages do not detail FX markup disclosure requirements for partners or sub-merchants. ([Adyen DCC currency expansion](https://www.adyen.com/the-latest/dynamic-currency-conversion-now-supports-25-additional-currencies); [Sharetribe overview of Adyen for Platforms](https://www.sharetribe.com/academy/marketplace-payments/adyen-for-platforms-overview/))",
+      "cross_border_coverage": "Adyen for Platforms supports payouts in 15+ currencies across 35 countries; broader Adyen acquiring supports payment acceptance in nearly 100 countries with a single platform/API approach across geographies and channels. ([Sharetribe overview of Adyen for Platforms](https://www.sharetribe.com/academy/marketplace-payments/adyen-for-platforms-overview/); [Adyen supported countries by product](https://intercom.help/valpay-partner/en/articles/11667440-adyen-supported-countries-regions-by-product))",
+      "embedded_finance_capabilities": "Yes — one of the most comprehensive in the set. Adyen's Embedded Finance suite includes four connected products: Embedded Payments, Embedded Issuing (branded card issuing with interchange revenue), Embedded Accounts (instant access to settled funds), and Embedded Capital (instant loans up to $100k with Adyen absorbing credit risk). ([Adyen embedded finance guide](https://www.adyen.com/knowledge-hub/embedded-finance))",
+      "api_first": "Yes. Adyen is built on a 'single platform and single API' approach across geographies and channels (per Forrester Wave Q1 2024, cited on Adyen's own partner page). ([Adyen Partners page](https://www.adyen.com/partners))",
+      "deal_registration": "Not explicitly disclosed as 'deal registration' on public pages, though the program includes referral rewards and co-selling support structures. ([Adyen Partner Program launch announcement](https://www.adyen.com/press-and-media/partner-program-launch))",
+      "mdf_available": "Yes. Top-tier partners gain access to dedicated marketing support and market development funds (MDF) to fuel joint campaigns. ([Adyen Partner Program launch announcement](https://www.adyen.com/press-and-media/partner-program-launch))",
+      "annual_partner_fee": "Not publicly disclosed.",
+      "ecosystem_size": "Not disclosed as a specific number on official pages; third-party partner-tracking site Partnerbase lists dozens of named technology/channel partners including Microsoft, Salesforce, SAP, Adobe, Oracle, and Shopify. ([Partnerbase Adyen partnerships](https://www.partnerbase.com/adyen))",
+      "recent_program_changes": [
+        {"date": "2025-07-01", "change": "Adyen launched an enhanced, tiered Partner Program (Technology and Service partner tracks) with clearer engagement models, revenue-sharing eligibility for technology partners, and MDF for top-tier partners.", "source": "https://www.adyen.com/press-and-media/partner-program-launch"},
+        {"date": "2025-06-27", "change": "Adyen detailed the new Partner Program structure, including Premier and Premier Plus tiers, bi-annual product roadmap access for Premier Partners, and partner badges tied to job-to-be-done categories.", "source": "https://www.adyen.com/knowledge-hub/partner-program"},
+        {"date": "2026-04-29", "change": "Sokin and Adyen announced a strategic global partnership giving US businesses a single solution for e-commerce payments and treasury operations.", "source": "https://www.prnewswire.com/news-releases/sokin-and-adyen-partner-to-give-us-businesses-a-single-solution-for-ecommerce-payments-and-treasury-operations-302756603.html"},
+        {"date": "2026-06-04", "change": "Adyen expanded Dynamic Currency Conversion to support 25 additional currencies.", "source": "https://www.adyen.com/the-latest/dynamic-currency-conversion-now-supports-25-additional-currencies"}
+      ],
+      "best_fit_icp": "SaaS platforms embedding payments",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Adyen Partners page", "url": "https://www.adyen.com/partners"},
+        {"label": "Adyen Partner Program launch announcement", "url": "https://www.adyen.com/press-and-media/partner-program-launch"},
+        {"label": "Adyen knowledge hub: Introducing Adyen's Partner Program", "url": "https://www.adyen.com/knowledge-hub/partner-program"},
+        {"label": "Adyen embedded finance guide", "url": "https://www.adyen.com/knowledge-hub/embedded-finance"},
+        {"label": "Sharetribe overview of Adyen for Platforms", "url": "https://www.sharetribe.com/academy/marketplace-payments/adyen-for-platforms-overview/"},
+        {"label": "Adyen supported countries by product", "url": "https://intercom.help/valpay-partner/en/articles/11667440-adyen-supported-countries-regions-by-product"},
+        {"label": "Partnerbase Adyen partnerships", "url": "https://www.partnerbase.com/adyen"}
+      ]
+    },
+    {
+      "vendor_name": "Airwallex",
+      "program_name": "Airwallex Partner Program",
+      "website": "https://www.airwallex.com/partners",
+      "partner_types": ["Referral", "ISV / Embedded", "Technology partner", "Consulting partner"],
+      "tiers": [],
+      "revenue_share_model": "Custom / negotiated. Airwallex states partners get 'referral rewards, revenue-sharing models, and co-marketing support' but does not publish specific percentages. ([Airwallex Partners page](https://www.airwallex.com/partners))",
+      "fx_markup_transparency": "Not publicly detailed for partners on the partner program page.",
+      "cross_border_coverage": "80+ licenses and permits globally; 1000+ partners; 200k+ Airwallex customers globally (specific currency/country counts not itemized on the partner page). ([Airwallex Partners page](https://www.airwallex.com/partners))",
+      "embedded_finance_capabilities": "Yes. Technology partners can integrate Airwallex APIs to embed Business Accounts, Spend Management, and Payments directly into their own product. ([Airwallex Partners page](https://www.airwallex.com/partners))",
+      "api_first": "Yes. Airwallex explicitly promotes 'Airwallex's APIs' as the mechanism for technology partners to unlock new monetization opportunities. ([Airwallex Partners page](https://www.airwallex.com/partners))",
+      "deal_registration": "Not publicly disclosed.",
+      "mdf_available": "Not publicly disclosed on the partner page (co-marketing support is mentioned generally).",
+      "annual_partner_fee": "Not publicly disclosed.",
+      "ecosystem_size": "1,000+ partners globally; 200,000+ Airwallex customers. ([Airwallex Partners page](https://www.airwallex.com/partners))",
+      "recent_program_changes": [
+        {"date": "2026-01-29", "change": "BBCIncorp honored with Airwallex 'Outstanding Partner Award 2025', highlighting active partner recognition programs.", "source": "https://bbcincorp.com/vn/news/bbcincorp-receives-airwallex-outstanding-partner-award-2025"},
+        {"date": "2025-06 (ongoing)", "change": "Airwallex continues to segment its partner program into five named tracks: Corporate services, Agencies, Technology partners, Startup ecosystem, and Affiliates.", "source": "https://www.airwallex.com/partners"}
+      ],
+      "best_fit_icp": "Cross-border B2B",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Airwallex Partners page", "url": "https://www.airwallex.com/partners"},
+        {"label": "Airwallex US partners page", "url": "https://www.airwallex.com/en-us/partners"},
+        {"label": "BBCIncorp Airwallex Outstanding Partner Award 2025", "url": "https://bbcincorp.com/vn/news/bbcincorp-receives-airwallex-outstanding-partner-award-2025"}
+      ]
+    },
+    {
+      "vendor_name": "Wise Platform",
+      "program_name": "Wise Platform (embedded) / Wise Business",
+      "website": "https://wise.com/platform/",
+      "partner_types": ["ISV / Embedded", "Technology partner"],
+      "tiers": [],
+      "revenue_share_model": "Custom / negotiated for embedding partners (banks, enterprises, platforms); not structured as a public partner rev-share/tier program like Stripe or Adyen. Wise's own end-customer pricing is transparent: average fee of 0.53% globally as of December 2025, down from 0.59% a year earlier, using the mid-market rate with zero FX markup. ([Wise December 2025 fee review](https://wise.com/us/blog/december-fee-review-2025); [FXC Intelligence Wise investor day insights](https://www.fxcintel.com/research/reports/ct-wise-2025-investor-day))",
+      "fx_markup_transparency": "Yes — Wise's core differentiator. Wise uses the real mid-market exchange rate with 0% markup and charges a separate, transparent fee (fixed + variable, ~0.33%-0.65% depending on corridor) disclosed upfront before every transfer; this transparency extends to Wise Platform's embedded offering for partner banks/enterprises. ([Wise mid-market rate explainer](https://wise.com/gb/blog/mid-market-rate-explained); [Wise December 2025 fee review](https://wise.com/us/blog/december-fee-review-2025))",
+      "cross_border_coverage": "160+ countries; 40+ currencies; direct access to domestic payment systems in 8 markets (Australia, Brazil, Europe/SEPA, Hungary, Japan, Philippines, Singapore, UK). Cross-border volume reached £181.7bn in FY26 (+25% YoY), with a Q4 FY26 take rate of 51 basis points. ([Wise Platform page](https://wise.com/platform/); [Wise FY26 results coverage](https://theindustryspread.com/wise-fy26-cross-border-volume-181bn/))",
+      "embedded_finance_capabilities": "Yes. Wise Platform lets banks, enterprises, and platforms embed send/receive money, card issuing, multi-currency accounts, customizable onboarding/KYC, and Swift messaging integration via the Wise Platform API. ([Wise Platform page](https://wise.com/platform/))",
+      "api_first": "Yes. Wise Platform explicitly offers connection 'via Swift or API' with full API documentation for partners. ([Wise Platform page](https://wise.com/platform/))",
+      "deal_registration": "Not publicly disclosed (Wise Platform is a direct enterprise/bank partnership model rather than a classic channel-partner program).",
+      "mdf_available": "Not publicly disclosed.",
+      "annual_partner_fee": "Not publicly disclosed; embedding partners negotiate commercial terms directly with Wise.",
+      "ecosystem_size": "70+ licenses worldwide; 950+ engineers; >99% straight-through-processing (STP) rate; 74% of instant payments complete in under 20 seconds and 96% in under 24 hours. Wise Platform accounted for roughly 9% of total Wise volume as of FY2023 per third-party analysis, with continued growth since. ([Wise Platform page](https://wise.com/platform/); [LinkedIn/FintechWrapUp on Wise Platform volume share](https://www.linkedin.com/posts/fintechwrapup_%F0%9D%90%94%F0%9D%90%A7%F0%9D%90%9D%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0-%F0%9D%90%87%F0%9D%90%A8%F0%9D%90%B0-%F0%9D%90%96%F0%9D%90%A2%F0%9D%90%AC-activity-7423657086309502976-qig7)",
+      "recent_program_changes": [
+        {"date": "2025-12-03", "change": "Wise's December 2025 fee review confirmed the average global fee fell to 0.53%, the lowest in 5 years, and moved to a single all-inclusive upfront fee to eliminate hidden costs.", "source": "https://wise.com/us/blog/december-fee-review-2025"},
+        {"date": "2025-11-10", "change": "Wise Platform showcased embedding low-cost, instant cross-border payments into banks and ecosystems at Sibos 2025.", "source": "https://www.theasianbanker.com/updates-and-articles/wise-platform-embeds-low-cost-instant-cross-border-payments-into-banks-and-ecosystems"},
+        {"date": "2026-06-09", "change": "Wise reported FY26 cross-border volume growth of 25% to £181.7bn, while deliberately cutting its take rate to 51 basis points in Q4.", "source": "https://theindustryspread.com/wise-fy26-cross-border-volume-181bn/"},
+        {"date": "2026-02-25", "change": "Wise Platform published a quarterly product update covering new integrations and platform capabilities.", "source": "https://wise.com/gb/blog/quarterly-product-update"}
+      ],
+      "best_fit_icp": "Cross-border B2B",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Wise Platform page", "url": "https://wise.com/platform/"},
+        {"label": "Wise mid-market rate explainer", "url": "https://wise.com/gb/blog/mid-market-rate-explained"},
+        {"label": "Wise December 2025 fee review", "url": "https://wise.com/us/blog/december-fee-review-2025"},
+        {"label": "FXC Intelligence Wise investor day insights", "url": "https://www.fxcintel.com/research/reports/ct-wise-2025-investor-day"},
+        {"label": "Wise FY26 results coverage (The Industry Spread)", "url": "https://theindustryspread.com/wise-fy26-cross-border-volume-181bn/"},
+        {"label": "The Asian Banker: Wise Platform at Sibos 2025", "url": "https://www.theasianbanker.com/updates-and-articles/wise-platform-embeds-low-cost-instant-cross-border-payments-into-banks-and-ecosystems"}
+      ]
+    },
+    {
+      "vendor_name": "Rapyd",
+      "program_name": "Rapyd Partner Programme",
+      "website": "https://www.rapyd.net/partners/",
+      "partner_types": ["Referral", "ISV / Embedded", "Reseller / VAR", "Consulting partner"],
+      "tiers": [],
+      "revenue_share_model": "Custom / negotiated. Referral Partners and Consultants 'earn commissions'; ISVs 'earn revenue from their transactions' by embedding payments and can also become ISO payment partners to monetize their platform. No public percentage figures are disclosed. ([Rapyd Partner Programme page](https://www.rapyd.net/partners/))",
+      "fx_markup_transparency": "Not publicly disclosed for partners or end-customers on official pages.",
+      "cross_border_coverage": "Accept 150+ currencies via cards, e-wallets, bank transfers and cash; send payouts to 190+ countries in 120+ currencies; hold/settle funds in 65-70+ currencies; direct acquiring/issuing licenses in 40+ countries (UK, Europe, Israel, Singapore, Hong Kong, plus 6 Latin American countries post-PayU acquisition); 900+ local payment methods across 100+ countries. ([Rapyd 2025 Overview PDF](https://go.rapyd.net/hubfs/2025_Gated_Content/2025-Rapyd_Overview.pdf); [Rapyd Global Payments Network docs](https://docs.rapyd.net/en/rapyd-platforms.html))",
+      "embedded_finance_capabilities": "Yes. Rapyd offers embedded fintech capabilities including multi-currency business accounts (Wallet Infrastructure), card issuing (10+ markets), Open Banking at Checkout, automatic settlements, POS/SoftPOS, and — as of September 2025 — Stablecoin Payment Solutions for accepting and settling in USDC/USDT. ([Rapyd Embedded Fintech page](https://www.rapyd.net/solutions/embedded-fintech/); [FXC Intelligence on Rapyd's stablecoin launch](https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview))",
+      "api_first": "Yes. Rapyd explicitly highlights API-based onboarding for ISOs and a single unified API for global payments, payouts, and virtual accounts. ([Rapyd Partner Programme page](https://www.rapyd.net/partners/))",
+      "deal_registration": "Not publicly disclosed.",
+      "mdf_available": "Not publicly disclosed.",
+      "annual_partner_fee": "Not publicly disclosed.",
+      "ecosystem_size": "250,000+ merchant clients globally (post-PayU acquisition); ~1,600 employees; licensed/regulated in 41 countries. ([Business Wire on Rapyd/PayU GPO acquisition](https://www.businesswire.com/news/home/20230731625413/en/Rapyd-Acquires-PayU-GPO-to-Expand-Fintech-and-Payments-Solutions-Globally))",
+      "recent_program_changes": [
+        {"date": "2025-03-14", "change": "Rapyd completed its ~$610M acquisition of PayU's Global Payment Organisation (Latin America and Africa), expanding card acquiring to 6 Latin American countries (Mexico, Brazil, Argentina, Chile, Colombia, Peru) and market access into Nigeria and South Africa.", "source": "https://www.rapyd.net/company/news/press-releases/rapyd-completes-acquisition-of-payu-latin-america-and-africa/"},
+        {"date": "2025-09-09", "change": "Rapyd launched Stablecoin Payment Solutions, enabling platforms and marketplaces to accept stablecoin payments and instantly convert to fiat; CEO projected 2025 revenue of ~$1.1bn (76% YoY growth).", "source": "https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview"},
+        {"date": "2025-05", "change": "Rapyd was named one of FXC Intelligence's Top 100 Cross-Border Payment Companies for the sixth consecutive year.", "source": "https://www.rfp.wiki/payments-fraud/payment-gateways/rapyd"},
+        {"date": "2024-09-10", "change": "Rapyd expanded its Global Partner Programme to power revenue growth for referral partners, ISOs, and PayFacs, adding global payouts to 190+ countries.", "source": "https://finance.yahoo.com/news/rapyd-expands-global-partner-programme-130000844.html"}
+      ],
+      "best_fit_icp": "SMB payouts",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Rapyd Partner Programme page", "url": "https://www.rapyd.net/partners/"},
+        {"label": "Rapyd 2025 Overview (PDF)", "url": "https://go.rapyd.net/hubfs/2025_Gated_Content/2025-Rapyd_Overview.pdf"},
+        {"label": "Rapyd Embedded Fintech page", "url": "https://www.rapyd.net/solutions/embedded-fintech/"},
+        {"label": "FXC Intelligence: Rapyd's stablecoin launch", "url": "https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview"},
+        {"label": "Rapyd completes PayU GPO acquisition (press release)", "url": "https://www.rapyd.net/company/news/press-releases/rapyd-completes-acquisition-of-payu-latin-america-and-africa/"},
+        {"label": "Business Wire: Rapyd Acquires PayU GPO", "url": "https://www.businesswire.com/news/home/20230731625413/en/Rapyd-Acquires-PayU-GPO-to-Expand-Fintech-and-Payments-Solutions-Globally"}
+      ]
+    },
+    {
+      "vendor_name": "Nium",
+      "program_name": "Nium Payments Partner Program",
+      "website": "https://www.nium.com/partners",
+      "partner_types": ["Referral", "ISV / Embedded", "Technology partner"],
+      "tiers": [],
+      "revenue_share_model": "Custom / negotiated. Referral Partners 'increase revenue through commissions on international payments'; no public percentage figures. ([Nium Partners page](https://www.nium.com/partners))",
+      "fx_markup_transparency": "Not publicly disclosed on the partner program page.",
+      "cross_border_coverage": "Global payouts to 190+ countries and territories; 100+ currencies in 100+ markets, with stated emphasis on emerging-market reach. ([Nium Partners page](https://www.nium.com/partners))",
+      "embedded_finance_capabilities": "Yes. Nium enables partners to embed multi-currency accounts, FX, and cross-border bulk payouts directly into their platform via API; Nium also joined Visa's stablecoin settlement pilot (Nov 2025) and partnered with Circle to bring USDC settlement to its network (May 2026). ([Nium Partners page](https://www.nium.com/partners); [Nium newsroom: Visa stablecoin pilot](https://www.nium.com/newsroom/nium-joins-visa-stablecoin-settlement-cross-border-payments); [RWA Times on Circle-Nium partnership](https://rwatimes.substack.com/p/circle-partners-with-nium-to-bring))",
+      "api_first": "Yes. Nium offers 'One API' for money movement plus flexible interfaces (APIs/Portal) and streamlined or tailored integrations. ([Nium Partners page](https://www.nium.com/partners))",
+      "deal_registration": "Not publicly disclosed.",
+      "mdf_available": "Not publicly disclosed.",
+      "annual_partner_fee": "Not publicly disclosed.",
+      "ecosystem_size": "1,000+ companies on the Nium payments infrastructure. ([Nium Partners page](https://www.nium.com/partners))",
+      "recent_program_changes": [
+        {"date": "2025-10-02", "change": "Nium and Emirates NBD expanded their strategic partnership (first unveiled 2024), extending real-time payouts across Emirates NBD Group in the UAE with exploration of expansion to Saudi Arabia.", "source": "https://www.nium.com/newsroom/nium-emirates-nbd-expand-partnership-payouts"},
+        {"date": "2025-11-12", "change": "Nium joined Visa's stablecoin settlement pilot to support its cross-border payments infrastructure.", "source": "https://www.nium.com/newsroom/nium-joins-visa-stablecoin-settlement-cross-border-payments"},
+        {"date": "2026-05-27", "change": "Circle and Nium partnered to bring USDC settlement to Nium's cross-border payments network spanning 190+ countries.", "source": "https://rwatimes.substack.com/p/circle-partners-with-nium-to-bring"}
+      ],
+      "best_fit_icp": "Cross-border B2B",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Nium Partners page", "url": "https://www.nium.com/partners"},
+        {"label": "Nium newsroom: Visa stablecoin settlement pilot", "url": "https://www.nium.com/newsroom/nium-joins-visa-stablecoin-settlement-cross-border-payments"},
+        {"label": "Nium/Emirates NBD partnership expansion", "url": "https://www.nium.com/newsroom/nium-emirates-nbd-expand-partnership-payouts"},
+        {"label": "RWA Times: Circle partners with Nium on USDC settlement", "url": "https://rwatimes.substack.com/p/circle-partners-with-nium-to-bring"}
+      ]
+    },
+    {
+      "vendor_name": "Currencycloud",
+      "program_name": "Currencycloud Fuse Partner Programme (Currencycloud, a Visa solution)",
+      "website": "https://www.currencycloud.com/company/partners/",
+      "partner_types": ["ISV / Embedded", "Technology partner", "Reseller / VAR"],
+      "tiers": [],
+      "revenue_share_model": "Not publicly disclosed; Currencycloud Fuse offers 'a variety of partnership models and integration options' without published rev-share percentages. ([Currencycloud Partners page](https://www.currencycloud.com/company/partners/))",
+      "fx_markup_transparency": "Not publicly disclosed on partner-facing pages, though Currencycloud/Visa Cross-Border Solutions markets itself as providing 'simple, clear cross-border infrastructure.' ([Currencycloud/Unit partnership announcement](https://www.currencycloud.com/company/news/unit-partners-with-currencycloud-to-enable-seamless-cross-border-payments/))",
+      "cross_border_coverage": "Processed $100bn+ to over 180 countries (cumulative, pre-Visa integration); supports 33+ currencies for collect/convert/pay/manage via 85 APIs across 4 modules. ([Currencycloud Unit partnership announcement](https://www.currencycloud.com/company/news/unit-partners-with-currencycloud-to-enable-seamless-cross-border-payments/); [Currencycloud APIs page](https://www.currencycloud.com/technology/cutting-edge-apis/))",
+      "embedded_finance_capabilities": "Yes. Currencycloud (now branded 'Currencycloud, a Visa solution' / integrated into Visa Cross-Border Solutions) is a B2B2X embedded FX and cross-border payments infrastructure provider for banks and fintechs, enabling multi-currency wallets, embedded FX, and Visa's broader Treasury-as-a-Service capabilities. ([Visa Developer: What is Currencycloud?](https://developer.visa.com/pages/Currencycloud); [FinTech Alliance on Visa Cross-Border Solutions launch](https://fintech-alliance.com/news-insights/article/visa-launches-global-cross-border-money-movement-package))",
+      "api_first": "Yes. Currencycloud is built on an API-based embedded foreign exchange platform ('one simple and flexible API connection'). ([Visa cross-border money movement launch coverage](https://fintech-alliance.com/news-insights/article/visa-launches-global-cross-border-money-movement-package))",
+      "deal_registration": "Not publicly disclosed.",
+      "mdf_available": "Not publicly disclosed.",
+      "annual_partner_fee": "Not publicly disclosed.",
+      "ecosystem_size": "Approximately 500 banking and technology clients historically cited (pre-full Visa integration); named partners/clients include Visa, Starling Bank, Revolut, Klarna, Standard Bank South Africa, Dwolla, GPS, and Mambu. ([XAnge on Currencycloud joining Visa](https://www.xange.vc/knowledge-hub/202201-congrats-to-currencycloud-the-embedded-cross-border-payment-fintech-pioneer-is-now-part-of-visa))",
+      "recent_program_changes": [
+        {"date": "2023-09-14", "change": "Visa launched 'Visa Cross-Border Solutions,' folding its Treasury-as-a-Service operations into Currencycloud's API-based embedded FX platform to offer modular building blocks for banks, fintechs, FX brokers, and corporates.", "source": "https://fintech-alliance.com/news-insights/article/visa-launches-global-cross-border-money-movement-package"},
+        {"date": "2021-12", "change": "Visa completed its acquisition of Currencycloud (having first invested in 2019), fully bringing the company into the Visa family.", "source": "https://fintechmagazine.com/articles/visa-currencycloud-pioneering-cross-border-solutions"}
+      ],
+      "best_fit_icp": "Cross-border B2B",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Currencycloud Partners page (Fuse programme)", "url": "https://www.currencycloud.com/company/partners/"},
+        {"label": "Visa Developer: What is Currencycloud?", "url": "https://developer.visa.com/pages/Currencycloud"},
+        {"label": "FinTech Alliance: Visa launches global cross-border money movement package", "url": "https://fintech-alliance.com/news-insights/article/visa-launches-global-cross-border-money-movement-package"},
+        {"label": "FinTech Magazine: Visa & Currencycloud pioneering cross-border solutions", "url": "https://fintechmagazine.com/articles/visa-currencycloud-pioneering-cross-border-solutions"},
+        {"label": "XAnge: Currencycloud joins Visa", "url": "https://www.xange.vc/knowledge-hub/202201-congrats-to-currencycloud-the-embedded-cross-border-payment-fintech-pioneer-is-now-part-of-visa"}
+      ]
+    },
+    {
+      "vendor_name": "dLocal",
+      "program_name": "dLocal Partner Program",
+      "website": "https://dlocal.com/partners/",
+      "partner_types": ["Referral", "ISV / Embedded", "Technology partner", "Consulting partner"],
+      "tiers": [],
+      "revenue_share_model": "Custom / negotiated. dLocal advertises 'commissions' and 'a new revenue stream' for partners, and a referral program that pays commissions per successful referral, but does not publish specific percentages. No partner exclusivity is required. ([dLocal Partners page](https://dlocal.com/partners/))",
+      "fx_markup_transparency": "Not publicly disclosed; dLocal references 'seamless FX' as part of its single-API offering without detailing markup disclosure practices.",
+      "cross_border_coverage": "Operates in 60+ countries (40+ classified as emerging markets across Africa, Asia, and Latin America); supports 900-1,000+ local and alternative payment methods and multi-currency transactions. ([dLocal Partners page](https://dlocal.com/partners/))",
+      "embedded_finance_capabilities": "Not explicitly detailed as embedded finance (accounts/cards/ledger) on the partner page; dLocal's core offering is local payment acceptance, FX, and cross-border settlement via a single API rather than a full embedded-finance/BaaS stack.",
+      "api_first": "Yes. dLocal explicitly manages local payments, FX, and cross-border transactions 'through one single API.' ([dLocal Partners page](https://dlocal.com/partners/))",
+      "deal_registration": "Not publicly disclosed.",
+      "mdf_available": "Not publicly disclosed.",
+      "annual_partner_fee": "Not publicly disclosed.",
+      "ecosystem_size": "760+ merchants served; partner types include payment/financial partners, technology/platform partners (SaaS, ERP, e-commerce, system integrators), and consulting/referral partners. ([dLocal Partners page](https://dlocal.com/partners/))",
+      "recent_program_changes": [
+        {"date": "2026-05-29", "change": "dLocal's partner page confirms current scale: 60+ countries, 1,000+ local payment methods, and 760+ merchants, reflecting continued expansion in emerging markets.", "source": "https://dlocal.com/partners/"}
+      ],
+      "best_fit_icp": "Cross-border B2B",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "dLocal Partners page", "url": "https://dlocal.com/partners/"}
+      ]
+    },
+    {
+      "vendor_name": "Payoneer",
+      "program_name": "Payoneer Partner Program (Integration Partnerships & Affiliate Program)",
+      "website": "https://www.payoneer.com/integration-partnerships/",
+      "partner_types": ["Referral", "ISV / Embedded", "Technology partner"],
+      "tiers": [],
+      "revenue_share_model": "Custom / negotiated for integration/technology partners; the separate Affiliate Program pays 'commissions based on the revenue generated by your referrals who become active Payoneer customers,' paid monthly, with no specific percentage published. Refer-a-Friend gives $250 to both parties after referral qualifies. ([Payoneer Affiliate Program page](https://www.payoneer.com/affiliate-program/); [Payoneer Refer a Friend page](https://www.payoneer.com/raf/))",
+      "fx_markup_transparency": "Partial. Payoneer markets 'competitive rates, minimized fees, and total transparency at every step' for FX/currency conversion (0.5% currency conversion fee between Payoneer accounts cited by third parties), but does not publish a partner-specific FX disclosure standard. ([Payoneer FX page](https://www.payoneer.com/marketplace/fx-foreign-exchange/); [NerdWallet Payoneer review 2026](https://www.nerdwallet.com/business/software/reviews/payoneer))",
+      "cross_border_coverage": "190+ countries and territories; 70+ currencies supported for sending, with local receiving accounts in ~10 major currencies; leverages nearly 100 banking/payment service providers globally supporting 7,000+ trade corridors. ([Payoneer FX page](https://www.payoneer.com/marketplace/fx-foreign-exchange/); [Payoneer 2025 Annual Report](https://investor.payoneer.com/static-files/0aa365d7-63dd-4d29-8737-d26dc18cd739))",
+      "embedded_finance_capabilities": "Yes. Payoneer offers a Working Capital API (Capital Advance, up to $750,000), Mass Payouts API, multi-currency account capabilities, and (announced February 2026) a suite of stablecoin capabilities powered by Bridge, alongside a pending U.S. national trust bank charter application. ([Payoneer integration partnerships page](https://www.payoneer.com/integration-partnerships/); [Payoneer Q4/FY2025 results](https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial))",
+      "api_first": "Yes. Payoneer's integration partnerships are built around APIs (mass payouts, working capital, payment tracking, OAuth 2.0 access). ([Payoneer integration partnerships page](https://www.payoneer.com/integration-partnerships/))",
+      "deal_registration": "Not publicly disclosed.",
+      "mdf_available": "Not publicly disclosed.",
+      "annual_partner_fee": "Not publicly disclosed for integration partners (some Payoneer end-customer products, like the business card, carry a separate ~$29.95 annual fee unrelated to partnering).",
+      "ecosystem_size": "1,500+ affiliate partners (per regional Payoneer affiliate page); 133 technology/channel partnerships tracked by third-party site Partnerbase; nearly 2 million active customers across 190+ countries. ([Payoneer Ukraine affiliate page](https://www.payoneer.com/uk/affiliate-program/); [Partnerbase Payoneer partnerships](https://www.partnerbase.com/payoneer); [Payoneer 2025 Annual Report](https://investor.payoneer.com/static-files/0aa365d7-63dd-4d29-8737-d26dc18cd739))",
+      "recent_program_changes": [
+        {"date": "2026-06-15", "change": "Nuvei announced a definitive agreement to acquire Payoneer for $2.75 billion ($7.40/share cash), creating a combined platform for local and cross-border commerce projected to generate ~$3B in annual revenue and process $500B+ in volume across 190+ countries; expected to close mid-2027.", "source": "https://investor.payoneer.com/news-events/news-releases"},
+        {"date": "2026-02-17", "change": "Payoneer announced plans to launch stablecoin capabilities embedded within its platform, powered by Bridge.", "source": "https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial"},
+        {"date": "2026-02-24", "change": "Payoneer filed an application with the OCC to establish PAYO Digital Bank, N.A., a U.S. national trust bank charter to support its stablecoin strategy.", "source": "https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial"},
+        {"date": "2026-01", "change": "Payoneer acquired Dublin-based workforce management startup Boundless for $13M (plus up to $4M earn-out), and separately received in-principle authorization as a Payment Aggregator-Cross Border (PA-CB) in India.", "source": "https://www.fintechfutures.com/keyword/payoneer"},
+        {"date": "2025-04", "change": "Payoneer launched a partnership with Stripe to enhance and expand its Checkout offering, combining Stripe's technology with Payoneer's local market expertise.", "source": "https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial"}
+      ],
+      "best_fit_icp": "SMB payouts",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Payoneer Integration Partnerships page", "url": "https://www.payoneer.com/integration-partnerships/"},
+        {"label": "Payoneer Affiliate Program page", "url": "https://www.payoneer.com/affiliate-program/"},
+        {"label": "Payoneer FX page", "url": "https://www.payoneer.com/marketplace/fx-foreign-exchange/"},
+        {"label": "Payoneer Q4/FY2025 financial results", "url": "https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial"},
+        {"label": "Payoneer 2025 Annual Report", "url": "https://investor.payoneer.com/static-files/0aa365d7-63dd-4d29-8737-d26dc18cd739"},
+        {"label": "Payoneer investor news releases (Nuvei acquisition)", "url": "https://investor.payoneer.com/news-events/news-releases"},
+        {"label": "Partnerbase Payoneer partnerships", "url": "https://www.partnerbase.com/payoneer"}
+      ]
+    },
+    {
+      "vendor_name": "Corpay",
+      "program_name": "Corpay Cross-Border Solutions Partner Program (heritage: FLEETCOR / Cambridge Global Payments)",
+      "website": "https://www.corpay.com/cross-border",
+      "partner_types": ["Referral", "Reseller / VAR", "ISV / Embedded"],
+      "tiers": [],
+      "revenue_share_model": "Custom / negotiated. Historical partner materials describe 'Broker/Referral, Value-Added Resellers (Affiliates), and OEM options' with 'custom pricing by corridor and payment method' rather than a published percentage. ([Corpay Payment Solutions Partner Placemat, 2021](https://www.corpay.com/pdfs/integrated-payments/corpay-payment-solutions-partner-placemat-2021.pdf))",
+      "fx_markup_transparency": "Not publicly disclosed as a formal standard; Corpay markets 'transparent' cross-border payments experience and forward-contract rate locking for clients (e.g., 45-60 day forward contracts), but does not publish specific FX markup disclosure rules for partners or end-customers. ([AMI Strategies/Corpay partnership announcement](https://amistrategies.com/cambridge-global-payments-announces-partnership-ami-strategies/))",
+      "cross_border_coverage": "145+ currencies with delivery to 200+ countries (per partner integration listings); more broadly, Corpay processes payments in more than 160 currencies around the world; 4.1M+ payments annually and 21,000+ customers on the Cross-Border platform; partners with 100+ correspondent banks across 6 continents. ([Microsoft AppSource Corpay Cross-Border listing](https://appsource.microsoft.com/en-in/product/dynamics-365-for-operations/fleetcortechnologiesinc1637002052602.corpay-cross-border?tab=overview); [Corpay Cross-Border page](https://www.corpay.com/cross-border); [Mastercard/Corpay partnership announcement](https://investor.mastercard.com/investor-news/investor-news-details/2025/Mastercard-and-Corpay-Launch-Strategic-Partnership-in-Cross-Border-Payments/default.aspx))",
+      "embedded_finance_capabilities": "Limited/not emphasized as embedded finance; Corpay's core partner value proposition centers on FX risk management, international payments (bill pay, mass payments), and commercial card programs rather than embeddable accounts/KYC/ledger infrastructure for third-party platforms.",
+      "api_first": "Partial. Corpay supports 'payment execution through basic file upload or API' — API is an option but not positioned as API-first/API-only the way Stripe or Wise are. ([Corpay Payment Solutions Partner Placemat, 2021](https://www.corpay.com/pdfs/integrated-payments/corpay-payment-solutions-partner-placemat-2021.pdf))",
+      "deal_registration": "Not publicly disclosed.",
+      "mdf_available": "Not publicly disclosed.",
+      "annual_partner_fee": "Not publicly disclosed.",
+      "ecosystem_size": "21,000+ customers on the Cross-Border platform; 100+ correspondent banking and counterparty trading relationships across 6 continents. ([Corpay Cross-Border page](https://www.corpay.com/cross-border); [Corpay Corporate Placemat 2023 PDF](https://assets.ctfassets.net/h83dujey17us/1IkolXWa3LQhnQrUoves82/7c6c8acc92a4fe2c9308de8fb03271c1/Corpay_-_Corporate_Placemat_-_2023.pdf))",
+      "recent_program_changes": [
+        {"date": "2025-04-29", "change": "Mastercard and Corpay launched a strategic partnership: Mastercard made a $300M minority investment (~3% equity stake, $10.7B enterprise valuation) in Corpay's cross-border business, and Corpay became the exclusive provider of large-ticket cross-border payments and currency risk management to Mastercard's financial institution customers.", "source": "https://investor.mastercard.com/investor-news/investor-news-details/2025/Mastercard-and-Corpay-Launch-Strategic-Partnership-in-Cross-Border-Payments/default.aspx"},
+        {"date": "2025-09-29", "change": "Corpay and Mastercard extended near-real-time payments to 22 new markets across Asia, Europe, Middle East, Africa, and Latin America.", "source": "https://tradecredit.substack.com/p/corpay-and-mastercard-expand-near-real-time-payments-to-22-new-global-markets"},
+        {"date": "2025-12-08", "change": "Corpay completed Mastercard's $300M minority investment into its cross-border business, targeting first customer conversions from Q1 2026.", "source": "https://investor.corpay.com/news-releases/news-release-details/corpay-completes-mastercards-minority-investment-cross-border/"},
+        {"date": "2025-10 to 2025-11", "change": "Corpay closed its acquisition of Alpha (adding ~$55M in Q4 revenue) and, with TPG, completed acquisition of a 34% stake in AvidXchange, expanding its mid-market AP automation and cross-border risk management footprint.", "source": "https://www.fxcintel.com/research/reports/ct-corpay-q3-25-earnings"}
+      ],
+      "best_fit_icp": "Enterprise treasury",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Corpay Cross-Border page", "url": "https://www.corpay.com/cross-border"},
+        {"label": "Corpay Payment Solutions Partner Placemat (2021, PDF)", "url": "https://www.corpay.com/pdfs/integrated-payments/corpay-payment-solutions-partner-placemat-2021.pdf"},
+        {"label": "FLEETCOR to Acquire Cambridge Global Payments (2017)", "url": "https://www.corpay.com/corporate-newsroom/7226/fleetcor-to-acquire-cambridge-global-payments-a-leading-b2b-international-payments-provider"},
+        {"label": "Mastercard/Corpay partnership announcement", "url": "https://investor.mastercard.com/investor-news/investor-news-details/2025/Mastercard-and-Corpay-Launch-Strategic-Partnership-in-Cross-Border-Payments/default.aspx"},
+        {"label": "Corpay completes Mastercard minority investment", "url": "https://investor.corpay.com/news-releases/news-release-details/corpay-completes-mastercards-minority-investment-cross-border/"},
+        {"label": "FXC Intelligence: Corpay Q3 2025 earnings", "url": "https://www.fxcintel.com/research/reports/ct-corpay-q3-25-earnings"},
+        {"label": "Microsoft AppSource: Corpay Cross-Border listing", "url": "https://appsource.microsoft.com/en-in/product/dynamics-365-for-operations/fleetcortechnologiesinc1637002052602.corpay-cross-border?tab=overview"}
+      ]
+    },
+    {
+      "vendor_name": "Convera",
+      "program_name": "Convera Partner Program (heritage: Western Union Business Solutions)",
+      "website": "https://convera.com/partners/",
+      "partner_types": ["Referral", "ISV / Embedded", "Consulting partner"],
+      "tiers": [],
+      "revenue_share_model": "Not publicly disclosed; Convera markets 'new revenue opportunities' for software and advisory partners without publishing specific percentages or a formal referral/rev-share table. ([Convera Partners page](https://convera.com/partners/))",
+      "fx_markup_transparency": "Not publicly disclosed on the partner page.",
+      "cross_border_coverage": "140+ currencies across 200+ countries and territories; processes roughly $190 billion a year in cross-border volume per third-party analysis; built on 40+ years of foreign-exchange expertise inherited from Western Union Business Solutions. ([Convera Partners page](https://convera.com/partners/); [Tom Wang analysis of Convera/Ripple partnership](https://tomcn.uk/news/2026-04-05-convera-ripple-stablecoin-sandwich-cross-border-payments))",
+      "embedded_finance_capabilities": "Yes, for software partners. Convera enables partners to 'embed multi-currency payouts into your platform via API,' and as of March 2026 added stablecoin-enabled settlement rails through its Ripple partnership. ([Convera Partners page](https://convera.com/partners/); [Convera/Ripple stablecoin partnership](https://convera.com/blog/company-news/ripple-convera-stablecoin-enabled-global-payments/))",
+      "api_first": "Yes. The software/technology partner track is explicitly built around embedding 'multi-currency payouts into your platform via API.' ([Convera Partners page](https://convera.com/partners/))",
+      "deal_registration": "Not publicly disclosed.",
+      "mdf_available": "Not publicly disclosed.",
+      "annual_partner_fee": "Not publicly disclosed.",
+      "ecosystem_size": "550+ active partners. ([Convera Partners page](https://convera.com/partners/))",
+      "recent_program_changes": [
+        {"date": "2023-07-10", "change": "Convera announced the final closing of its transition from Western Union Business Solutions, completing its full rebrand and spin-off.", "source": "https://www.businesswire.com/news/home/20230710685281/en/Convera-Announces-Final-Closing-of-Western-Union-Business-Solutions-Completing-Global-Transition"},
+        {"date": "2026-03-31", "change": "Convera announced a strategic partnership with Ripple to deliver stablecoin-enabled settlement across its 200-country, 140-currency network, capitalizing on the GENIUS Act's new US stablecoin regulatory framework.", "source": "https://convera.com/blog/company-news/ripple-convera-stablecoin-enabled-global-payments/"},
+        {"date": "2021-08-12", "change": "Western Union Business Solutions announced its rename to Convera as part of its carve-out from Western Union.", "source": "https://convera.com/blog/company-news/western-union-business-solutions-to-be-renamed-convera/"}
+      ],
+      "best_fit_icp": "Cross-border B2B",
+      "partnerawesome_take": "",
+      "sources": [
+        {"label": "Convera Partners page", "url": "https://convera.com/partners/"},
+        {"label": "Convera/Ripple stablecoin partnership announcement", "url": "https://convera.com/blog/company-news/ripple-convera-stablecoin-enabled-global-payments/"},
+        {"label": "Western Union Business Solutions renamed to Convera", "url": "https://convera.com/blog/company-news/western-union-business-solutions-to-be-renamed-convera/"},
+        {"label": "Business Wire: Convera final closing of WUBS transition", "url": "https://www.businesswire.com/news/home/20230710685281/en/Convera-Announces-Final-Closing-of-Western-Union-Business-Solutions-Completing-Global-Transition"},
+        {"label": "Tom Wang analysis: Convera/Ripple stablecoin partnership", "url": "https://tomcn.uk/news/2026-04-05-convera-ripple-stablecoin-sandwich-cross-border-payments"}
+      ]
+    }
+  ]
+}

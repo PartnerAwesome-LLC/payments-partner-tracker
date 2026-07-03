@@ -1,0 +1,954 @@
+<style>
+.pa-payments-tracker-embed *, .pa-payments-tracker-embed *::before, .pa-payments-tracker-embed *::after{ box-sizing: border-box; margin: 0; padding: 0; }.pa-payments-tracker-embed{
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --text-xs: clamp(0.6875rem, 0.65rem + 0.2vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+  --text-base: clamp(0.875rem, 0.85rem + 0.12vw, 0.9375rem);
+  --text-lg: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-xl: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+  --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem;
+  --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}.pa-payments-tracker-embed[data-theme="dark"], .pa-payments-tracker-embed [data-theme="dark"]{
+  --bg: #0c0d10;
+  --surface: #14151a;
+  --surface-2: #1a1b22;
+  --surface-3: #22232c;
+  --border: #2a2b36;
+  --border-subtle: #1e1f28;
+  --text: #e2e4ea;
+  --text-muted: #888a96;
+  --text-faint: #555760;
+  --accent-openai: #10a37f;
+  --accent-openai-bg: rgba(16, 163, 127, 0.08);
+  --accent-anthropic: #d4a574;
+  --accent-anthropic-bg: rgba(212, 165, 116, 0.08);
+  --accent-google: #4285f4;
+  --accent-google-bg: rgba(66, 133, 244, 0.08);
+  --badge-new: #22c55e;
+  --badge-change: #f59e0b;
+  --badge-deprecation: #ef4444;
+  --badge-new-bg: rgba(34, 197, 94, 0.1);
+  --badge-change-bg: rgba(245, 158, 11, 0.1);
+  --badge-deprecation-bg: rgba(239, 68, 68, 0.1);
+  --shadow: 0 2px 8px rgba(0,0,0,0.3);
+}.pa-payments-tracker-embed[data-theme="light"], .pa-payments-tracker-embed [data-theme="light"]{
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #f0f1f4;
+  --surface-3: #e8e9ee;
+  --border: #d4d6de;
+  --border-subtle: #e8e9ee;
+  --text: #1a1c24;
+  --text-muted: #6b6e7a;
+  --text-faint: #9a9ca8;
+  --accent-openai: #0d8c6d;
+  --accent-openai-bg: rgba(13, 140, 109, 0.06);
+  --accent-anthropic: #b88a54;
+  --accent-anthropic-bg: rgba(184, 138, 84, 0.06);
+  --accent-google: #3570d4;
+  --accent-google-bg: rgba(53, 112, 212, 0.06);
+  --badge-new: #16a34a;
+  --badge-change: #d97706;
+  --badge-deprecation: #dc2626;
+  --badge-new-bg: rgba(22, 163, 74, 0.08);
+  --badge-change-bg: rgba(217, 119, 6, 0.08);
+  --badge-deprecation-bg: rgba(220, 38, 38, 0.08);
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+}.pa-payments-tracker-embed{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}.pa-payments-tracker-embed{
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+  min-height: 100dvh;
+}.pa-payments-tracker-embed /* ---- Layout ---- */
+.dashboard{
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}.pa-payments-tracker-embed .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}.pa-payments-tracker-embed .header h1{
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}.pa-payments-tracker-embed .header-meta{
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}.pa-payments-tracker-embed .last-updated{
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}.pa-payments-tracker-embed .theme-toggle{
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  transition: all var(--transition);
+}.pa-payments-tracker-embed .theme-toggle:hover{ color: var(--text); border-color: var(--text-muted); }.pa-payments-tracker-embed /* ---- Model Overview Grid ---- */
+.model-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}@media (max-width: 860px) {.pa-payments-tracker-embed .model-grid{ grid-template-columns: 1fr; }
+}.pa-payments-tracker-embed .model-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}.pa-payments-tracker-embed .model-card:hover{ border-color: var(--text-faint); }.pa-payments-tracker-embed .model-card::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}.pa-payments-tracker-embed .model-card .provider{
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-1);
+}.pa-payments-tracker-embed .model-card .model-name{
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.01em;
+}.pa-payments-tracker-embed .model-card .release-date{
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}.pa-payments-tracker-embed .spec-row{
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--border-subtle);
+  font-size: var(--text-sm);
+  gap: var(--space-3);
+}.pa-payments-tracker-embed .spec-row:last-child{ border-bottom: 1px solid var(--border-subtle); }.pa-payments-tracker-embed .spec-label{ color: var(--text-muted); }.pa-payments-tracker-embed .spec-value{ font-weight: 600; font-family: var(--font-mono); font-size: var(--text-xs); text-align: right; }.pa-payments-tracker-embed /* ---- Comparison Table ---- */
+.section-title{
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.01em;
+}.pa-payments-tracker-embed .comparison-wrapper{
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}.pa-payments-tracker-embed .comparison-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  min-width: 1400px;
+}.pa-payments-tracker-embed .comparison-table th{
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+}.pa-payments-tracker-embed .comparison-table td{
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}.pa-payments-tracker-embed .comparison-table tr:last-child td{ border-bottom: none; }.pa-payments-tracker-embed .comparison-table td:first-child{
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  position: sticky;
+  left: 0;
+  background: var(--surface);
+}.pa-payments-tracker-embed .comparison-table .mono{
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}.pa-payments-tracker-embed .comparison-table .highlight{
+  font-weight: 600;
+  color: var(--text);
+}.pa-payments-tracker-embed /* ---- Changelog ---- */
+.changelog{
+  margin-bottom: var(--space-8);
+}.pa-payments-tracker-embed .changelog-entry{
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  align-items: flex-start;
+}.pa-payments-tracker-embed .changelog-entry:last-child{ border-bottom: none; }.pa-payments-tracker-embed .changelog-date{
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  white-space: nowrap;
+  min-width: 90px;
+  padding-top: 2px;
+}.pa-payments-tracker-embed .changelog-content{
+  flex: 1;
+}.pa-payments-tracker-embed .changelog-content .title{
+  font-weight: 600;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-1);
+}.pa-payments-tracker-embed .changelog-content .detail{
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+}.pa-payments-tracker-embed .badge{
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: var(--space-2);
+  vertical-align: middle;
+}.pa-payments-tracker-embed .badge.new{ background: var(--badge-new-bg); color: var(--badge-new); }.pa-payments-tracker-embed .badge.change{ background: var(--badge-change-bg); color: var(--badge-change); }.pa-payments-tracker-embed .badge.deprecation{ background: var(--badge-deprecation-bg); color: var(--badge-deprecation); }.pa-payments-tracker-embed /* ---- Footer ---- */
+footer{
+  text-align: center;
+  padding: var(--space-8) 0 var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}.pa-payments-tracker-embed footer a{
+  color: var(--text-faint);
+  text-decoration: none;
+  font-size: var(--text-xs);
+  transition: color var(--transition);
+}.pa-payments-tracker-embed footer a:hover{ color: var(--text-muted); }.pa-payments-tracker-embed /* ---- Tab nav ---- */
+.tab-nav{
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+  overflow-x: auto;
+}.pa-payments-tracker-embed .tab-btn{
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}.pa-payments-tracker-embed .tab-btn:hover{ color: var(--text); }.pa-payments-tracker-embed .tab-btn.active{
+  color: var(--text);
+  border-bottom-color: var(--text);
+}.pa-payments-tracker-embed .tab-panel{ display: none; }.pa-payments-tracker-embed .tab-panel.active{ display: block; }.pa-payments-tracker-embed .model-card.stripe::before{ background: #635bff; }.pa-payments-tracker-embed .model-card.adyen::before{ background: #0abf53; }.pa-payments-tracker-embed .model-card.airwallex::before{ background: #00d4b8; }.pa-payments-tracker-embed .model-card.wise-platform::before{ background: #9fe870; }.pa-payments-tracker-embed .model-card.rapyd::before{ background: #5c3bfe; }.pa-payments-tracker-embed .model-card.nium::before{ background: #ff5a5f; }.pa-payments-tracker-embed .model-card.currencycloud::before{ background: #1a1f71; }.pa-payments-tracker-embed .model-card.dlocal::before{ background: #00e08f; }.pa-payments-tracker-embed .model-card.payoneer::before{ background: #ff4800; }.pa-payments-tracker-embed .model-card.corpay::before{ background: #e01a2b; }.pa-payments-tracker-embed .model-card.convera::before{ background: #ffcc00; }.pa-payments-tracker-embed .model-grid{ grid-template-columns: repeat(3, 1fr); }@media (max-width: 1100px) {.pa-payments-tracker-embed .model-grid{ grid-template-columns: repeat(2, 1fr); } }@media (max-width: 700px) {.pa-payments-tracker-embed .model-grid{ grid-template-columns: 1fr; } }.pa-payments-tracker-embed .badge{ display:inline-block; font-size:0.6875rem; font-weight:600; padding:2px 8px; border-radius:var(--radius-sm); margin-right:6px; margin-bottom:6px; }
+
+
+</style>
+<div class="pa-payments-tracker-embed" data-theme="dark">
+
+<!-- Dashboard: Payments Partner Program Tracker. Data: /home/user/workspace/dashboards-2026-07/research/payments.json. Generated: 2026-07-03T16:56:14.114520. Vendors: 11. -->
+<div class="dashboard">
+<!-- Header -->
+<div class="header">
+<div>
+<h1>Payments Partner Program Tracker</h1>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-top:var(--space-1);max-width:760px;">Live comparison of partner terms across Stripe, Adyen, Airwallex, Wise, and 7 other payments and cross-border providers &mdash; refreshed twice weekly.</p>
+</div>
+<div class="header-meta">
+<span class="last-updated" id="lastUpdated">Updated: July 3, 2026</span>
+<button aria-label="Switch theme" class="theme-toggle" data-theme-toggle="">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+</button>
+</div>
+</div>
+<!-- Tab Navigation -->
+<nav class="tab-nav">
+<button class="tab-btn active" data-tab="overview">Overview</button>
+<button class="tab-btn" data-tab="comparison">Comparison</button>
+<button class="tab-btn" data-tab="deep-dive">Deep Dive</button>
+<button class="tab-btn" data-tab="insights">Insights</button>
+<button class="tab-btn" data-tab="changelog">Changelog</button>
+</nav>
+<!-- Tab: Overview -->
+<div class="tab-panel active" id="tab-overview">
+<div class="model-grid">
+<div class="model-card stripe" style="--card-accent:#635bff;">
+<div class="provider" style="color:#635bff;">Stripe</div>
+<div class="model-name">Stripe Partner Ecosystem</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#635bff1a;color:#635bff;">Stripe Partner Ecosystem</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">SaaS platforms embedding payments</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom/negotiated; Premier SaaS tier needs $1M rev or $300M volume</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">40+ countries / 135+ currencies</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">SaaS platforms embedding payments</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://stripe.com/partners" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#635bff;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card adyen" style="--card-accent:#0abf53;">
+<div class="provider" style="color:#0abf53;">Adyen</div>
+<div class="model-name">Adyen Partner Program</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#0abf531a;color:#0abf53;">Adyen Partner Program</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">SaaS platforms embedding payments</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom/negotiated; volume-based rev-share for tech partners</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">~100 countries / 15+ currencies (payouts)</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">SaaS platforms embedding payments</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://www.adyen.com/partners" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#0abf53;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card airwallex" style="--card-accent:#00d4b8;">
+<div class="provider" style="color:#00d4b8;">Airwallex</div>
+<div class="model-name">Airwallex Partner Program</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#00d4b81a;color:#00d4b8;">Airwallex Partner Program</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">Cross-border B2B</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom/negotiated; referral rewards + rev-share</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">80+ licenses / 1,000+ partners</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">Cross-border B2B</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://www.airwallex.com/partners" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#00d4b8;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card wise-platform" style="--card-accent:#9fe870;">
+<div class="provider" style="color:#9fe870;">Wise Platform</div>
+<div class="model-name">Wise Platform (embedded) / Wise Business</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#9fe8701a;color:#9fe870;">Wise Platform</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">Cross-border B2B</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom/negotiated (embed); 0% FX markup on end-customer side</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">160+ countries / 40+ currencies</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">Cross-border B2B</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://wise.com/platform/" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#9fe870;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card rapyd" style="--card-accent:#5c3bfe;">
+<div class="provider" style="color:#5c3bfe;">Rapyd</div>
+<div class="model-name">Rapyd Partner Programme</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#5c3bfe1a;color:#5c3bfe;">Rapyd Partner Programme</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">SMB payouts</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom/negotiated; commissions + ISV transaction revenue</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">190+ countries / 150+ currencies</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">SMB payouts</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://www.rapyd.net/partners/" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#5c3bfe;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card nium" style="--card-accent:#ff5a5f;">
+<div class="provider" style="color:#ff5a5f;">Nium</div>
+<div class="model-name">Nium Payments Partner Program</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#ff5a5f1a;color:#ff5a5f;">Nium Payments Partner Program</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">Cross-border B2B</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom/negotiated; referral commissions on volume</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">190+ countries / 100+ currencies</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">Cross-border B2B</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://www.nium.com/partners" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#ff5a5f;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card currencycloud" style="--card-accent:#1a1f71;">
+<div class="provider" style="color:#1a1f71;">Currencycloud</div>
+<div class="model-name">Currencycloud Fuse Partner Programme (Currencycloud, a Visa solution)</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#1a1f711a;color:#1a1f71;">Currencycloud Fuse Partner Programme</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">Cross-border B2B</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Not publicly disclosed</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">180+ countries / 33+ currencies</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">Cross-border B2B</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://www.currencycloud.com/company/partners/" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#1a1f71;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card dlocal" style="--card-accent:#00e08f;">
+<div class="provider" style="color:#00e08f;">dLocal</div>
+<div class="model-name">dLocal Partner Program</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#00e08f1a;color:#00e08f;">dLocal Partner Program</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">Cross-border B2B</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom/negotiated; commissions, no exclusivity required</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">60+ countries / 900-1,000+ payment methods</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Limited</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">Cross-border B2B</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://dlocal.com/partners/" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#00e08f;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card payoneer" style="--card-accent:#ff4800;">
+<div class="provider" style="color:#ff4800;">Payoneer</div>
+<div class="model-name">Payoneer Partner Program (Integration Partnerships &amp; Affiliate Program)</div>
+
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#ff48001a;color:#ff4800;">Payoneer Partner Program</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">SMB payouts</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom/negotiated; affiliate pays monthly commission</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">190+ countries / 70+ currencies</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">SMB payouts</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://www.payoneer.com/integration-partnerships/" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#ff4800;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card corpay" style="--card-accent:#e01a2b;">
+<div class="provider" style="color:#e01a2b;">Corpay</div>
+<div class="model-name">Corpay Cross-Border Solutions Partner Program (heritage: FLEETCOR / Cambridge Global Payments)</div>
+<div class="release-date" style="margin-top:-8px;">formerly FLEETCOR / Cambridge Global Payments</div>
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#e01a2b1a;color:#e01a2b;">Corpay Cross-Border Solutions Partner Program</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">Enterprise treasury</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Custom pricing by corridor/payment method</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">200+ countries / 145+ currencies</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Limited</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">Enterprise treasury</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://www.corpay.com/cross-border" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#e01a2b;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+<div class="model-card convera" style="--card-accent:#ffcc00;">
+<div class="provider" style="color:#ffcc00;">Convera</div>
+<div class="model-name">Convera Partner Program (heritage: Western Union Business Solutions)</div>
+<div class="release-date" style="margin-top:-8px;">formerly Western Union Business Solutions</div>
+<div style="margin-bottom:var(--space-3);"><span class="badge" style="background:#ffcc001a;color:#ffcc00;">Convera Partner Program</span>
+<span class="badge" style="background:var(--surface-3);color:var(--text-muted);">Cross-border B2B</span></div>
+<div class="spec-row"><span class="spec-label">Revenue share</span><span class="spec-value">Not publicly disclosed</span></div>
+<div class="spec-row"><span class="spec-label">Cross-border coverage</span><span class="spec-value">200+ countries / 140+ currencies</span></div>
+<div class="spec-row"><span class="spec-label">Embedded finance</span><span class="spec-value">Yes</span></div>
+<div class="spec-row"><span class="spec-label">Best-fit ICP</span><span class="spec-value">Cross-border B2B</span></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);font-style:italic;margin-top:var(--space-3);">Editor's note pending &mdash; Jason's take will appear here.</p>
+<a href="https://convera.com/partners/" target="_blank" rel="noopener" style="display:inline-block;margin-top:var(--space-2);font-size:var(--text-xs);color:#ffcc00;text-decoration:none;font-weight:600;">View partner program &rarr;</a>
+</div>
+</div>
+</div>
+<!-- Tab: Comparison -->
+<div class="tab-panel" id="tab-comparison">
+<h2 class="section-title">Side-by-Side Comparison</h2>
+<div class="comparison-wrapper">
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Program name</th>
+<th>Partner types</th>
+<th>Tier count</th>
+<th>Revenue share model</th>
+<th>FX transparency</th>
+<th>Cross-border coverage</th>
+<th>Embedded finance</th>
+<th>API-first</th>
+<th>Ecosystem size</th>
+<th>Best-fit ICP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="highlight">Stripe</td>
+<td>Stripe Partner Ecosystem</td>
+<td class="mono">Ref / SI / ISV / Tech / Consulting</td>
+<td class="mono">2</td>
+<td>Custom/negotiated; Premier SaaS tier needs $1M rev or $300M volume</td>
+<td>No &mdash; Not detailed for partners</td>
+<td class="mono">40+ countries / 135+ currencies</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>"Thousands" of partners</td>
+<td>SaaS platforms embedding payments</td>
+</tr>
+<tr>
+<td class="highlight">Adyen</td>
+<td>Adyen Partner Program</td>
+<td class="mono">Tech / Consulting / SI</td>
+<td class="mono">3</td>
+<td>Custom/negotiated; volume-based rev-share for tech partners</td>
+<td>Partial &mdash; "Transparent" pricing claimed, no standard disclosure</td>
+<td class="mono">~100 countries / 15+ currencies (payouts)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Dozens of named tech/channel partners</td>
+<td>SaaS platforms embedding payments</td>
+</tr>
+<tr>
+<td class="highlight">Airwallex</td>
+<td>Airwallex Partner Program</td>
+<td class="mono">Ref / ISV / Tech / Consulting</td>
+<td class="mono">0</td>
+<td>Custom/negotiated; referral rewards + rev-share</td>
+<td>No &mdash; Not publicly detailed</td>
+<td class="mono">80+ licenses / 1,000+ partners</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>1,000+ partners</td>
+<td>Cross-border B2B</td>
+</tr>
+<tr>
+<td class="highlight">Wise Platform</td>
+<td>Wise Platform (embedded) / Wise Business</td>
+<td class="mono">ISV / Tech</td>
+<td class="mono">0</td>
+<td>Custom/negotiated (embed); 0% FX markup on end-customer side</td>
+<td>Yes &mdash; 0% markup, mid-market rate, ~0.53% avg fee</td>
+<td class="mono">160+ countries / 40+ currencies</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>70+ licenses; 950+ engineers</td>
+<td>Cross-border B2B</td>
+</tr>
+<tr>
+<td class="highlight">Rapyd</td>
+<td>Rapyd Partner Programme</td>
+<td class="mono">Ref / ISV / R / Consulting</td>
+<td class="mono">0</td>
+<td>Custom/negotiated; commissions + ISV transaction revenue</td>
+<td>No &mdash; Not publicly disclosed</td>
+<td class="mono">190+ countries / 150+ currencies</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>250,000+ merchant clients</td>
+<td>SMB payouts</td>
+</tr>
+<tr>
+<td class="highlight">Nium</td>
+<td>Nium Payments Partner Program</td>
+<td class="mono">Ref / ISV / Tech</td>
+<td class="mono">0</td>
+<td>Custom/negotiated; referral commissions on volume</td>
+<td>No &mdash; Not publicly disclosed</td>
+<td class="mono">190+ countries / 100+ currencies</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>1,000+ companies</td>
+<td>Cross-border B2B</td>
+</tr>
+<tr>
+<td class="highlight">Currencycloud</td>
+<td>Currencycloud Fuse Partner Programme (Currencycloud, a Visa solution)</td>
+<td class="mono">ISV / Tech / R</td>
+<td class="mono">0</td>
+<td>Not publicly disclosed</td>
+<td>No &mdash; Not publicly disclosed</td>
+<td class="mono">180+ countries / 33+ currencies</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>~500 clients (legacy figure)</td>
+<td>Cross-border B2B</td>
+</tr>
+<tr>
+<td class="highlight">dLocal</td>
+<td>dLocal Partner Program</td>
+<td class="mono">Ref / ISV / Tech / Consulting</td>
+<td class="mono">0</td>
+<td>Custom/negotiated; commissions, no exclusivity required</td>
+<td>No &mdash; "Seamless FX" claimed, no markup disclosure</td>
+<td class="mono">60+ countries / 900-1,000+ payment methods</td>
+<td>Limited</td>
+<td>Yes</td>
+<td>760+ merchants</td>
+<td>Cross-border B2B</td>
+</tr>
+<tr>
+<td class="highlight">Payoneer</td>
+<td>Payoneer Partner Program (Integration Partnerships &amp; Affiliate Program)</td>
+<td class="mono">Ref / ISV / Tech</td>
+<td class="mono">0</td>
+<td>Custom/negotiated; affiliate pays monthly commission</td>
+<td>Partial &mdash; "Total transparency" claimed; ~0.5% conversion fee cited</td>
+<td class="mono">190+ countries / 70+ currencies</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>1,500+ affiliates; 133 tech partners</td>
+<td>SMB payouts</td>
+</tr>
+<tr>
+<td class="highlight">Corpay</td>
+<td>Corpay Cross-Border Solutions Partner Program (heritage: FLEETCOR / Cambridge Global Payments)</td>
+<td class="mono">Ref / R / ISV</td>
+<td class="mono">0</td>
+<td>Custom pricing by corridor/payment method</td>
+<td>No &mdash; "Transparent" claimed; forward-contract rate locking only</td>
+<td class="mono">200+ countries / 145+ currencies</td>
+<td>Limited</td>
+<td>Partial</td>
+<td>21,000+ customers (Cross-Border)</td>
+<td>Enterprise treasury</td>
+</tr>
+<tr>
+<td class="highlight">Convera</td>
+<td>Convera Partner Program (heritage: Western Union Business Solutions)</td>
+<td class="mono">Ref / ISV / Consulting</td>
+<td class="mono">0</td>
+<td>Not publicly disclosed</td>
+<td>No &mdash; Not publicly disclosed</td>
+<td class="mono">200+ countries / 140+ currencies</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>550+ active partners</td>
+<td>Cross-border B2B</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:-1.25rem;margin-bottom:var(--space-8);">Partner type key: R = Reseller/VAR, SI = Solution/System Integrator, ISV = ISV/Embedded, Ref = Referral, Tech = Technology partner, Consulting = Consulting partner.</p>
+</div>
+<!-- Tab: Deep Dive -->
+<div class="tab-panel" id="tab-deep-dive">
+<h2 class="section-title">Vendor Deep Dive</h2>
+<section class="model-card stripe" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Stripe</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Stripe Partner Ecosystem</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Referral, Solution / SI, ISV / Embedded, Technology partner, Consulting partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Stripe Partner, Premier Partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated. SaaS platforms using Stripe Connect are eligible for a 'revenue sharing' program on processing volume; Premier Partner (SaaS track) requires at least $1M in partnership revenue for buy-rate platforms or $300M in payment volume for referral-model platforms. Services-track partners earn referral/co-sell support rather than disclosed percentages. Exact rev-share percentages are not publicly disclosed. (<a href="https://docs.stripe.com/partners/platforms" target="_blank" rel="noopener">Stripe SaaS platform partners docs</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly detailed for partners. Stripe discloses over 125+ global payment methods and currency support in its core payments docs, but does not publish standardized FX markup disclosure requirements for partners or end-customers on its partner pages. (<a href="https://stripe.com/blog/top-product-updates-sessions-2025" target="_blank" rel="noopener">Stripe Sessions 2025 product update</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">135+ currencies accepted; 40+ countries with full Stripe account support (with additional 'Preview' markets); 125+ local payment methods including stablecoins and real-time payment rails like Pix and UPI. (<a href="https://docs.stripe.com/currencies" target="_blank" rel="noopener">Stripe currencies docs</a>; <a href="https://stripe.com/blog/top-product-updates-sessions-2025" target="_blank" rel="noopener">Stripe Sessions 2025 update</a>; <a href="https://redstagfulfillment.com/how-many-countries-does-stripe-operate-in/" target="_blank" rel="noopener">Red Stag Fulfillment country guide</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Stripe Connect enables embedded payments, payouts, and marketplace/platform account management; Stripe also offers Issuing (card issuing), Treasury (embedded banking/accounts), and 'Managed Payments' (merchant-of-record offering announced 2025) covering tax compliance, fraud/disputes, and checkout. (<a href="https://stripe.com/blog/top-product-updates-sessions-2025" target="_blank" rel="noopener">Stripe Sessions 2025 update</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Stripe's entire partner ecosystem is built around API integration (Payment Intents, Connect, Checkout, Payment Element, webhooks). (<a href="https://docs.stripe.com/partners/platforms" target="_blank" rel="noopener">Stripe SaaS platform partners docs</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Services-track Partner and Premier Partner tiers both have 'Deal registration to request co-selling support' as a stated benefit. (<a href="https://docs.stripe.com/partners/services" target="_blank" rel="noopener">Stripe Services partners docs</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Both Partner and Premier tiers in the Services track are eligible to request market development funds (MDF); Premier Partners in the SaaS track get MDF as an added benefit. (<a href="https://docs.stripe.com/partners/services" target="_blank" rel="noopener">Stripe Services partners docs</a>; <a href="https://docs.stripe.com/partners/platforms" target="_blank" rel="noopener">Stripe SaaS platform partners docs</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">No standard published fee for the core Partner Ecosystem; one third-party affiliate resource cites a legacy 'Stripe Verified Partner Program' with a $250/year fee, but this is not corroborated on Stripe's current official pages. (<a href="https://wise.com/gb/blog/stripe-affiliate-program" target="_blank" rel="noopener">Wise blog on Stripe affiliate program</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not disclosed as a specific partner count on official pages; described as 'thousands of trusted partners around the world.' (<a href="https://stripe.com/partners" target="_blank" rel="noopener">Stripe Partner Ecosystem page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">SaaS platforms embedding payments</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2026-04</span><div class="changelog-content"><div class="detail">Stripe restructured the Partner Ecosystem into a streamlined two-tier model (Stripe Partner and Premier Partner) across four tracks (Services, SaaS platforms, Apps, Payment methods), raising baseline standards for technical expertise, business impact, and customer success. (<a href="https://docs.stripe.com/partners" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-Q2</span><div class="changelog-content"><div class="detail">Seven new partner specializations launched: Agentic Commerce, Radar, Terminal, Retail, Media, Financial Services, and Travel &amp; Hospitality. (<a href="https://www.linkedin.com/pulse/q2-2026-newsletter-stripe-partner-ecosystem-0z8xe" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-Q2</span><div class="changelog-content"><div class="detail">Launch of the Stripe Partner Solutions Program, moving partners from custom implementations to repeatable industry solutions on a 70/30 prebuilt-to-customizable model; partners on this model reportedly grew revenue 20% faster year-over-year. (<a href="https://www.linkedin.com/pulse/q2-2026-newsletter-stripe-partner-ecosystem-0z8xe" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-05</span><div class="changelog-content"><div class="detail">At Stripe Sessions 2025, Stripe previewed Stripe Orchestration (multi-processor management), announced Managed Payments (merchant-of-record offering), and expanded to 125+ global payment methods including stablecoins and real-time rails like Pix and UPI. (<a href="https://stripe.com/blog/top-product-updates-sessions-2025" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://stripe.com/partners" target="_blank" rel="noopener">Stripe Partner Ecosystem</a>, <a href="https://docs.stripe.com/partners" target="_blank" rel="noopener">Stripe Partner Ecosystem docs (tiers, tracks)</a>, <a href="https://docs.stripe.com/partners/platforms" target="_blank" rel="noopener">Stripe SaaS platform partners docs</a>, <a href="https://docs.stripe.com/partners/services" target="_blank" rel="noopener">Stripe Services partners docs</a>, <a href="https://www.linkedin.com/pulse/q2-2026-newsletter-stripe-partner-ecosystem-0z8xe" target="_blank" rel="noopener">Stripe Q2 2026 partner newsletter (LinkedIn)</a>, <a href="https://stripe.com/blog/top-product-updates-sessions-2025" target="_blank" rel="noopener">Stripe Sessions 2025 product updates</a>, <a href="https://docs.stripe.com/currencies" target="_blank" rel="noopener">Stripe supported currencies docs</a></p>
+</section>
+<section class="model-card adyen" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Adyen</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Adyen Partner Program</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Technology partner, Consulting partner, Solution / SI</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Partner (badged/approved), Premier, Premier Plus</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated. Technology partners 'may also be eligible for revenue-sharing opportunities based on merchant transaction volume'; Service partners can be eligible for implementation funds; a separate referral program rewards partners for bringing new customers or leads. Specific percentages are not publicly disclosed. (<a href="https://www.adyen.com/press-and-media/partner-program-launch" target="_blank" rel="noopener">Adyen Partner Program launch announcement</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Partial. Adyen markets 'transparent, straightforward' pricing without hidden fees for its Adyen for Platforms product (per third-party analysis), and for Dynamic Currency Conversion Adyen recently expanded support to 25 additional currencies, but Adyen's own partner pages do not detail FX markup disclosure requirements for partners or sub-merchants. (<a href="https://www.adyen.com/the-latest/dynamic-currency-conversion-now-supports-25-additional-currencies" target="_blank" rel="noopener">Adyen DCC currency expansion</a>; <a href="https://www.sharetribe.com/academy/marketplace-payments/adyen-for-platforms-overview/" target="_blank" rel="noopener">Sharetribe overview of Adyen for Platforms</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Adyen for Platforms supports payouts in 15+ currencies across 35 countries; broader Adyen acquiring supports payment acceptance in nearly 100 countries with a single platform/API approach across geographies and channels. (<a href="https://www.sharetribe.com/academy/marketplace-payments/adyen-for-platforms-overview/" target="_blank" rel="noopener">Sharetribe overview of Adyen for Platforms</a>; <a href="https://intercom.help/valpay-partner/en/articles/11667440-adyen-supported-countries-regions-by-product" target="_blank" rel="noopener">Adyen supported countries by product</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes — one of the most comprehensive in the set. Adyen's Embedded Finance suite includes four connected products: Embedded Payments, Embedded Issuing (branded card issuing with interchange revenue), Embedded Accounts (instant access to settled funds), and Embedded Capital (instant loans up to $100k with Adyen absorbing credit risk). (<a href="https://www.adyen.com/knowledge-hub/embedded-finance" target="_blank" rel="noopener">Adyen embedded finance guide</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Adyen is built on a 'single platform and single API' approach across geographies and channels (per Forrester Wave Q1 2024, cited on Adyen's own partner page). (<a href="https://www.adyen.com/partners" target="_blank" rel="noopener">Adyen Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not explicitly disclosed as 'deal registration' on public pages, though the program includes referral rewards and co-selling support structures. (<a href="https://www.adyen.com/press-and-media/partner-program-launch" target="_blank" rel="noopener">Adyen Partner Program launch announcement</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Top-tier partners gain access to dedicated marketing support and market development funds (MDF) to fuel joint campaigns. (<a href="https://www.adyen.com/press-and-media/partner-program-launch" target="_blank" rel="noopener">Adyen Partner Program launch announcement</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not disclosed as a specific number on official pages; third-party partner-tracking site Partnerbase lists dozens of named technology/channel partners including Microsoft, Salesforce, SAP, Adobe, Oracle, and Shopify. (<a href="https://www.partnerbase.com/adyen" target="_blank" rel="noopener">Partnerbase Adyen partnerships</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">SaaS platforms embedding payments</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2025-07-01</span><div class="changelog-content"><div class="detail">Adyen launched an enhanced, tiered Partner Program (Technology and Service partner tracks) with clearer engagement models, revenue-sharing eligibility for technology partners, and MDF for top-tier partners. (<a href="https://www.adyen.com/press-and-media/partner-program-launch" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-06-27</span><div class="changelog-content"><div class="detail">Adyen detailed the new Partner Program structure, including Premier and Premier Plus tiers, bi-annual product roadmap access for Premier Partners, and partner badges tied to job-to-be-done categories. (<a href="https://www.adyen.com/knowledge-hub/partner-program" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-04-29</span><div class="changelog-content"><div class="detail">Sokin and Adyen announced a strategic global partnership giving US businesses a single solution for e-commerce payments and treasury operations. (<a href="https://www.prnewswire.com/news-releases/sokin-and-adyen-partner-to-give-us-businesses-a-single-solution-for-ecommerce-payments-and-treasury-operations-302756603.html" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-06-04</span><div class="changelog-content"><div class="detail">Adyen expanded Dynamic Currency Conversion to support 25 additional currencies. (<a href="https://www.adyen.com/the-latest/dynamic-currency-conversion-now-supports-25-additional-currencies" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://www.adyen.com/partners" target="_blank" rel="noopener">Adyen Partners page</a>, <a href="https://www.adyen.com/press-and-media/partner-program-launch" target="_blank" rel="noopener">Adyen Partner Program launch announcement</a>, <a href="https://www.adyen.com/knowledge-hub/partner-program" target="_blank" rel="noopener">Adyen knowledge hub: Introducing Adyen's Partner Program</a>, <a href="https://www.adyen.com/knowledge-hub/embedded-finance" target="_blank" rel="noopener">Adyen embedded finance guide</a>, <a href="https://www.sharetribe.com/academy/marketplace-payments/adyen-for-platforms-overview/" target="_blank" rel="noopener">Sharetribe overview of Adyen for Platforms</a>, <a href="https://intercom.help/valpay-partner/en/articles/11667440-adyen-supported-countries-regions-by-product" target="_blank" rel="noopener">Adyen supported countries by product</a>, <a href="https://www.partnerbase.com/adyen" target="_blank" rel="noopener">Partnerbase Adyen partnerships</a></p>
+</section>
+<section class="model-card airwallex" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Airwallex</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Airwallex Partner Program</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Referral, ISV / Embedded, Technology partner, Consulting partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated. Airwallex states partners get 'referral rewards, revenue-sharing models, and co-marketing support' but does not publish specific percentages. (<a href="https://www.airwallex.com/partners" target="_blank" rel="noopener">Airwallex Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly detailed for partners on the partner program page.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">80+ licenses and permits globally; 1000+ partners; 200k+ Airwallex customers globally (specific currency/country counts not itemized on the partner page). (<a href="https://www.airwallex.com/partners" target="_blank" rel="noopener">Airwallex Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Technology partners can integrate Airwallex APIs to embed Business Accounts, Spend Management, and Payments directly into their own product. (<a href="https://www.airwallex.com/partners" target="_blank" rel="noopener">Airwallex Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Airwallex explicitly promotes 'Airwallex's APIs' as the mechanism for technology partners to unlock new monetization opportunities. (<a href="https://www.airwallex.com/partners" target="_blank" rel="noopener">Airwallex Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed on the partner page (co-marketing support is mentioned generally).</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">1,000+ partners globally; 200,000+ Airwallex customers. (<a href="https://www.airwallex.com/partners" target="_blank" rel="noopener">Airwallex Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Cross-border B2B</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2026-01-29</span><div class="changelog-content"><div class="detail">BBCIncorp honored with Airwallex 'Outstanding Partner Award 2025', highlighting active partner recognition programs. (<a href="https://bbcincorp.com/vn/news/bbcincorp-receives-airwallex-outstanding-partner-award-2025" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-06 (ongoing)</span><div class="changelog-content"><div class="detail">Airwallex continues to segment its partner program into five named tracks: Corporate services, Agencies, Technology partners, Startup ecosystem, and Affiliates. (<a href="https://www.airwallex.com/partners" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://www.airwallex.com/partners" target="_blank" rel="noopener">Airwallex Partners page</a>, <a href="https://www.airwallex.com/en-us/partners" target="_blank" rel="noopener">Airwallex US partners page</a>, <a href="https://bbcincorp.com/vn/news/bbcincorp-receives-airwallex-outstanding-partner-award-2025" target="_blank" rel="noopener">BBCIncorp Airwallex Outstanding Partner Award 2025</a></p>
+</section>
+<section class="model-card wise-platform" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Wise Platform</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Wise Platform (embedded) / Wise Business</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">ISV / Embedded, Technology partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated for embedding partners (banks, enterprises, platforms); not structured as a public partner rev-share/tier program like Stripe or Adyen. Wise's own end-customer pricing is transparent: average fee of 0.53% globally as of December 2025, down from 0.59% a year earlier, using the mid-market rate with zero FX markup. (<a href="https://wise.com/us/blog/december-fee-review-2025" target="_blank" rel="noopener">Wise December 2025 fee review</a>; <a href="https://www.fxcintel.com/research/reports/ct-wise-2025-investor-day" target="_blank" rel="noopener">FXC Intelligence Wise investor day insights</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes — Wise's core differentiator. Wise uses the real mid-market exchange rate with 0% markup and charges a separate, transparent fee (fixed + variable, ~0.33%-0.65% depending on corridor) disclosed upfront before every transfer; this transparency extends to Wise Platform's embedded offering for partner banks/enterprises. (<a href="https://wise.com/gb/blog/mid-market-rate-explained" target="_blank" rel="noopener">Wise mid-market rate explainer</a>; <a href="https://wise.com/us/blog/december-fee-review-2025" target="_blank" rel="noopener">Wise December 2025 fee review</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">160+ countries; 40+ currencies; direct access to domestic payment systems in 8 markets (Australia, Brazil, Europe/SEPA, Hungary, Japan, Philippines, Singapore, UK). Cross-border volume reached £181.7bn in FY26 (+25% YoY), with a Q4 FY26 take rate of 51 basis points. (<a href="https://wise.com/platform/" target="_blank" rel="noopener">Wise Platform page</a>; <a href="https://theindustryspread.com/wise-fy26-cross-border-volume-181bn/" target="_blank" rel="noopener">Wise FY26 results coverage</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Wise Platform lets banks, enterprises, and platforms embed send/receive money, card issuing, multi-currency accounts, customizable onboarding/KYC, and Swift messaging integration via the Wise Platform API. (<a href="https://wise.com/platform/" target="_blank" rel="noopener">Wise Platform page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Wise Platform explicitly offers connection 'via Swift or API' with full API documentation for partners. (<a href="https://wise.com/platform/" target="_blank" rel="noopener">Wise Platform page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed (Wise Platform is a direct enterprise/bank partnership model rather than a classic channel-partner program).</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed; embedding partners negotiate commercial terms directly with Wise.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">70+ licenses worldwide; 950+ engineers; &gt;99% straight-through-processing (STP) rate; 74% of instant payments complete in under 20 seconds and 96% in under 24 hours. Wise Platform accounted for roughly 9% of total Wise volume as of FY2023 per third-party analysis, with continued growth since. (<a href="https://wise.com/platform/" target="_blank" rel="noopener">Wise Platform page</a>; <a href="https://www.linkedin.com/posts/fintechwrapup_%F0%9D%90%94%F0%9D%90%A7%F0%9D%90%9D%F0%9D%90%9E%F0%9D%90%AB%F0%9D%90%AC%F0%9D%90%AD%F0%9D%90%9A%F0%9D%90%A7%F0%9D%90%9D%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0-%F0%9D%90%87%F0%9D%90%A8%F0%9D%90%B0-%F0%9D%90%96%F0%9D%90%A2%F0%9D%90%AC-activity-7423657086309502976-qig7" target="_blank" rel="noopener">LinkedIn/FintechWrapUp on Wise Platform volume share</a></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Cross-border B2B</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2025-12-03</span><div class="changelog-content"><div class="detail">Wise's December 2025 fee review confirmed the average global fee fell to 0.53%, the lowest in 5 years, and moved to a single all-inclusive upfront fee to eliminate hidden costs. (<a href="https://wise.com/us/blog/december-fee-review-2025" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-11-10</span><div class="changelog-content"><div class="detail">Wise Platform showcased embedding low-cost, instant cross-border payments into banks and ecosystems at Sibos 2025. (<a href="https://www.theasianbanker.com/updates-and-articles/wise-platform-embeds-low-cost-instant-cross-border-payments-into-banks-and-ecosystems" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-06-09</span><div class="changelog-content"><div class="detail">Wise reported FY26 cross-border volume growth of 25% to £181.7bn, while deliberately cutting its take rate to 51 basis points in Q4. (<a href="https://theindustryspread.com/wise-fy26-cross-border-volume-181bn/" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-02-25</span><div class="changelog-content"><div class="detail">Wise Platform published a quarterly product update covering new integrations and platform capabilities. (<a href="https://wise.com/gb/blog/quarterly-product-update" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://wise.com/platform/" target="_blank" rel="noopener">Wise Platform page</a>, <a href="https://wise.com/gb/blog/mid-market-rate-explained" target="_blank" rel="noopener">Wise mid-market rate explainer</a>, <a href="https://wise.com/us/blog/december-fee-review-2025" target="_blank" rel="noopener">Wise December 2025 fee review</a>, <a href="https://www.fxcintel.com/research/reports/ct-wise-2025-investor-day" target="_blank" rel="noopener">FXC Intelligence Wise investor day insights</a>, <a href="https://theindustryspread.com/wise-fy26-cross-border-volume-181bn/" target="_blank" rel="noopener">Wise FY26 results coverage (The Industry Spread)</a>, <a href="https://www.theasianbanker.com/updates-and-articles/wise-platform-embeds-low-cost-instant-cross-border-payments-into-banks-and-ecosystems" target="_blank" rel="noopener">The Asian Banker: Wise Platform at Sibos 2025</a></p>
+</section>
+<section class="model-card rapyd" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Rapyd</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Rapyd Partner Programme</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Referral, ISV / Embedded, Reseller / VAR, Consulting partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated. Referral Partners and Consultants 'earn commissions'; ISVs 'earn revenue from their transactions' by embedding payments and can also become ISO payment partners to monetize their platform. No public percentage figures are disclosed. (<a href="https://www.rapyd.net/partners/" target="_blank" rel="noopener">Rapyd Partner Programme page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed for partners or end-customers on official pages.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Accept 150+ currencies via cards, e-wallets, bank transfers and cash; send payouts to 190+ countries in 120+ currencies; hold/settle funds in 65-70+ currencies; direct acquiring/issuing licenses in 40+ countries (UK, Europe, Israel, Singapore, Hong Kong, plus 6 Latin American countries post-PayU acquisition); 900+ local payment methods across 100+ countries. (<a href="https://go.rapyd.net/hubfs/2025_Gated_Content/2025-Rapyd_Overview.pdf" target="_blank" rel="noopener">Rapyd 2025 Overview PDF</a>; <a href="https://docs.rapyd.net/en/rapyd-platforms.html" target="_blank" rel="noopener">Rapyd Global Payments Network docs</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Rapyd offers embedded fintech capabilities including multi-currency business accounts (Wallet Infrastructure), card issuing (10+ markets), Open Banking at Checkout, automatic settlements, POS/SoftPOS, and — as of September 2025 — Stablecoin Payment Solutions for accepting and settling in USDC/USDT. (<a href="https://www.rapyd.net/solutions/embedded-fintech/" target="_blank" rel="noopener">Rapyd Embedded Fintech page</a>; <a href="https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview" target="_blank" rel="noopener">FXC Intelligence on Rapyd's stablecoin launch</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Rapyd explicitly highlights API-based onboarding for ISOs and a single unified API for global payments, payouts, and virtual accounts. (<a href="https://www.rapyd.net/partners/" target="_blank" rel="noopener">Rapyd Partner Programme page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">250,000+ merchant clients globally (post-PayU acquisition); ~1,600 employees; licensed/regulated in 41 countries. (<a href="https://www.businesswire.com/news/home/20230731625413/en/Rapyd-Acquires-PayU-GPO-to-Expand-Fintech-and-Payments-Solutions-Globally" target="_blank" rel="noopener">Business Wire on Rapyd/PayU GPO acquisition</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">SMB payouts</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2025-03-14</span><div class="changelog-content"><div class="detail">Rapyd completed its ~$610M acquisition of PayU's Global Payment Organisation (Latin America and Africa), expanding card acquiring to 6 Latin American countries (Mexico, Brazil, Argentina, Chile, Colombia, Peru) and market access into Nigeria and South Africa. (<a href="https://www.rapyd.net/company/news/press-releases/rapyd-completes-acquisition-of-payu-latin-america-and-africa/" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-09-09</span><div class="changelog-content"><div class="detail">Rapyd launched Stablecoin Payment Solutions, enabling platforms and marketplaces to accept stablecoin payments and instantly convert to fiat; CEO projected 2025 revenue of ~$1.1bn (76% YoY growth). (<a href="https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-05</span><div class="changelog-content"><div class="detail">Rapyd was named one of FXC Intelligence's Top 100 Cross-Border Payment Companies for the sixth consecutive year. (<a href="https://www.rfp.wiki/payments-fraud/payment-gateways/rapyd" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2024-09-10</span><div class="changelog-content"><div class="detail">Rapyd expanded its Global Partner Programme to power revenue growth for referral partners, ISOs, and PayFacs, adding global payouts to 190+ countries. (<a href="https://finance.yahoo.com/news/rapyd-expands-global-partner-programme-130000844.html" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://www.rapyd.net/partners/" target="_blank" rel="noopener">Rapyd Partner Programme page</a>, <a href="https://go.rapyd.net/hubfs/2025_Gated_Content/2025-Rapyd_Overview.pdf" target="_blank" rel="noopener">Rapyd 2025 Overview (PDF)</a>, <a href="https://www.rapyd.net/solutions/embedded-fintech/" target="_blank" rel="noopener">Rapyd Embedded Fintech page</a>, <a href="https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview" target="_blank" rel="noopener">FXC Intelligence: Rapyd's stablecoin launch</a>, <a href="https://www.rapyd.net/company/news/press-releases/rapyd-completes-acquisition-of-payu-latin-america-and-africa/" target="_blank" rel="noopener">Rapyd completes PayU GPO acquisition (press release)</a>, <a href="https://www.businesswire.com/news/home/20230731625413/en/Rapyd-Acquires-PayU-GPO-to-Expand-Fintech-and-Payments-Solutions-Globally" target="_blank" rel="noopener">Business Wire: Rapyd Acquires PayU GPO</a></p>
+</section>
+<section class="model-card nium" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Nium</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Nium Payments Partner Program</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Referral, ISV / Embedded, Technology partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated. Referral Partners 'increase revenue through commissions on international payments'; no public percentage figures. (<a href="https://www.nium.com/partners" target="_blank" rel="noopener">Nium Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed on the partner program page.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Global payouts to 190+ countries and territories; 100+ currencies in 100+ markets, with stated emphasis on emerging-market reach. (<a href="https://www.nium.com/partners" target="_blank" rel="noopener">Nium Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Nium enables partners to embed multi-currency accounts, FX, and cross-border bulk payouts directly into their platform via API; Nium also joined Visa's stablecoin settlement pilot (Nov 2025) and partnered with Circle to bring USDC settlement to its network (May 2026). (<a href="https://www.nium.com/partners" target="_blank" rel="noopener">Nium Partners page</a>; <a href="https://www.nium.com/newsroom/nium-joins-visa-stablecoin-settlement-cross-border-payments" target="_blank" rel="noopener">Nium newsroom: Visa stablecoin pilot</a>; <a href="https://rwatimes.substack.com/p/circle-partners-with-nium-to-bring" target="_blank" rel="noopener">RWA Times on Circle-Nium partnership</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Nium offers 'One API' for money movement plus flexible interfaces (APIs/Portal) and streamlined or tailored integrations. (<a href="https://www.nium.com/partners" target="_blank" rel="noopener">Nium Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">1,000+ companies on the Nium payments infrastructure. (<a href="https://www.nium.com/partners" target="_blank" rel="noopener">Nium Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Cross-border B2B</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2025-10-02</span><div class="changelog-content"><div class="detail">Nium and Emirates NBD expanded their strategic partnership (first unveiled 2024), extending real-time payouts across Emirates NBD Group in the UAE with exploration of expansion to Saudi Arabia. (<a href="https://www.nium.com/newsroom/nium-emirates-nbd-expand-partnership-payouts" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-11-12</span><div class="changelog-content"><div class="detail">Nium joined Visa's stablecoin settlement pilot to support its cross-border payments infrastructure. (<a href="https://www.nium.com/newsroom/nium-joins-visa-stablecoin-settlement-cross-border-payments" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-05-27</span><div class="changelog-content"><div class="detail">Circle and Nium partnered to bring USDC settlement to Nium's cross-border payments network spanning 190+ countries. (<a href="https://rwatimes.substack.com/p/circle-partners-with-nium-to-bring" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://www.nium.com/partners" target="_blank" rel="noopener">Nium Partners page</a>, <a href="https://www.nium.com/newsroom/nium-joins-visa-stablecoin-settlement-cross-border-payments" target="_blank" rel="noopener">Nium newsroom: Visa stablecoin settlement pilot</a>, <a href="https://www.nium.com/newsroom/nium-emirates-nbd-expand-partnership-payouts" target="_blank" rel="noopener">Nium/Emirates NBD partnership expansion</a>, <a href="https://rwatimes.substack.com/p/circle-partners-with-nium-to-bring" target="_blank" rel="noopener">RWA Times: Circle partners with Nium on USDC settlement</a></p>
+</section>
+<section class="model-card currencycloud" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Currencycloud</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Currencycloud Fuse Partner Programme (Currencycloud, a Visa solution)</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">ISV / Embedded, Technology partner, Reseller / VAR</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed; Currencycloud Fuse offers 'a variety of partnership models and integration options' without published rev-share percentages. (<a href="https://www.currencycloud.com/company/partners/" target="_blank" rel="noopener">Currencycloud Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed on partner-facing pages, though Currencycloud/Visa Cross-Border Solutions markets itself as providing 'simple, clear cross-border infrastructure.' (<a href="https://www.currencycloud.com/company/news/unit-partners-with-currencycloud-to-enable-seamless-cross-border-payments/" target="_blank" rel="noopener">Currencycloud/Unit partnership announcement</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Processed $100bn+ to over 180 countries (cumulative, pre-Visa integration); supports 33+ currencies for collect/convert/pay/manage via 85 APIs across 4 modules. (<a href="https://www.currencycloud.com/company/news/unit-partners-with-currencycloud-to-enable-seamless-cross-border-payments/" target="_blank" rel="noopener">Currencycloud Unit partnership announcement</a>; <a href="https://www.currencycloud.com/technology/cutting-edge-apis/" target="_blank" rel="noopener">Currencycloud APIs page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Currencycloud (now branded 'Currencycloud, a Visa solution' / integrated into Visa Cross-Border Solutions) is a B2B2X embedded FX and cross-border payments infrastructure provider for banks and fintechs, enabling multi-currency wallets, embedded FX, and Visa's broader Treasury-as-a-Service capabilities. (<a href="https://developer.visa.com/pages/Currencycloud" target="_blank" rel="noopener">Visa Developer: What is Currencycloud?</a>; <a href="https://fintech-alliance.com/news-insights/article/visa-launches-global-cross-border-money-movement-package" target="_blank" rel="noopener">FinTech Alliance on Visa Cross-Border Solutions launch</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Currencycloud is built on an API-based embedded foreign exchange platform ('one simple and flexible API connection'). (<a href="https://fintech-alliance.com/news-insights/article/visa-launches-global-cross-border-money-movement-package" target="_blank" rel="noopener">Visa cross-border money movement launch coverage</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Approximately 500 banking and technology clients historically cited (pre-full Visa integration); named partners/clients include Visa, Starling Bank, Revolut, Klarna, Standard Bank South Africa, Dwolla, GPS, and Mambu. (<a href="https://www.xange.vc/knowledge-hub/202201-congrats-to-currencycloud-the-embedded-cross-border-payment-fintech-pioneer-is-now-part-of-visa" target="_blank" rel="noopener">XAnge on Currencycloud joining Visa</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Cross-border B2B</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2023-09-14</span><div class="changelog-content"><div class="detail">Visa launched 'Visa Cross-Border Solutions,' folding its Treasury-as-a-Service operations into Currencycloud's API-based embedded FX platform to offer modular building blocks for banks, fintechs, FX brokers, and corporates. (<a href="https://fintech-alliance.com/news-insights/article/visa-launches-global-cross-border-money-movement-package" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2021-12</span><div class="changelog-content"><div class="detail">Visa completed its acquisition of Currencycloud (having first invested in 2019), fully bringing the company into the Visa family. (<a href="https://fintechmagazine.com/articles/visa-currencycloud-pioneering-cross-border-solutions" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://www.currencycloud.com/company/partners/" target="_blank" rel="noopener">Currencycloud Partners page (Fuse programme)</a>, <a href="https://developer.visa.com/pages/Currencycloud" target="_blank" rel="noopener">Visa Developer: What is Currencycloud?</a>, <a href="https://fintech-alliance.com/news-insights/article/visa-launches-global-cross-border-money-movement-package" target="_blank" rel="noopener">FinTech Alliance: Visa launches global cross-border money movement package</a>, <a href="https://fintechmagazine.com/articles/visa-currencycloud-pioneering-cross-border-solutions" target="_blank" rel="noopener">FinTech Magazine: Visa &amp; Currencycloud pioneering cross-border solutions</a>, <a href="https://www.xange.vc/knowledge-hub/202201-congrats-to-currencycloud-the-embedded-cross-border-payment-fintech-pioneer-is-now-part-of-visa" target="_blank" rel="noopener">XAnge: Currencycloud joins Visa</a></p>
+</section>
+<section class="model-card dlocal" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">dLocal</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">dLocal Partner Program</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Referral, ISV / Embedded, Technology partner, Consulting partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated. dLocal advertises 'commissions' and 'a new revenue stream' for partners, and a referral program that pays commissions per successful referral, but does not publish specific percentages. No partner exclusivity is required. (<a href="https://dlocal.com/partners/" target="_blank" rel="noopener">dLocal Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed; dLocal references 'seamless FX' as part of its single-API offering without detailing markup disclosure practices.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Operates in 60+ countries (40+ classified as emerging markets across Africa, Asia, and Latin America); supports 900-1,000+ local and alternative payment methods and multi-currency transactions. (<a href="https://dlocal.com/partners/" target="_blank" rel="noopener">dLocal Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not explicitly detailed as embedded finance (accounts/cards/ledger) on the partner page; dLocal's core offering is local payment acceptance, FX, and cross-border settlement via a single API rather than a full embedded-finance/BaaS stack.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. dLocal explicitly manages local payments, FX, and cross-border transactions 'through one single API.' (<a href="https://dlocal.com/partners/" target="_blank" rel="noopener">dLocal Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">760+ merchants served; partner types include payment/financial partners, technology/platform partners (SaaS, ERP, e-commerce, system integrators), and consulting/referral partners. (<a href="https://dlocal.com/partners/" target="_blank" rel="noopener">dLocal Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Cross-border B2B</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2026-05-29</span><div class="changelog-content"><div class="detail">dLocal's partner page confirms current scale: 60+ countries, 1,000+ local payment methods, and 760+ merchants, reflecting continued expansion in emerging markets. (<a href="https://dlocal.com/partners/" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://dlocal.com/partners/" target="_blank" rel="noopener">dLocal Partners page</a></p>
+</section>
+<section class="model-card payoneer" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Payoneer</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Payoneer Partner Program (Integration Partnerships &amp; Affiliate Program)</p>
+
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Referral, ISV / Embedded, Technology partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated for integration/technology partners; the separate Affiliate Program pays 'commissions based on the revenue generated by your referrals who become active Payoneer customers,' paid monthly, with no specific percentage published. Refer-a-Friend gives $250 to both parties after referral qualifies. (<a href="https://www.payoneer.com/affiliate-program/" target="_blank" rel="noopener">Payoneer Affiliate Program page</a>; <a href="https://www.payoneer.com/raf/" target="_blank" rel="noopener">Payoneer Refer a Friend page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Partial. Payoneer markets 'competitive rates, minimized fees, and total transparency at every step' for FX/currency conversion (0.5% currency conversion fee between Payoneer accounts cited by third parties), but does not publish a partner-specific FX disclosure standard. (<a href="https://www.payoneer.com/marketplace/fx-foreign-exchange/" target="_blank" rel="noopener">Payoneer FX page</a>; <a href="https://www.nerdwallet.com/business/software/reviews/payoneer" target="_blank" rel="noopener">NerdWallet Payoneer review 2026</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">190+ countries and territories; 70+ currencies supported for sending, with local receiving accounts in ~10 major currencies; leverages nearly 100 banking/payment service providers globally supporting 7,000+ trade corridors. (<a href="https://www.payoneer.com/marketplace/fx-foreign-exchange/" target="_blank" rel="noopener">Payoneer FX page</a>; <a href="https://investor.payoneer.com/static-files/0aa365d7-63dd-4d29-8737-d26dc18cd739" target="_blank" rel="noopener">Payoneer 2025 Annual Report</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Payoneer offers a Working Capital API (Capital Advance, up to $750,000), Mass Payouts API, multi-currency account capabilities, and (announced February 2026) a suite of stablecoin capabilities powered by Bridge, alongside a pending U.S. national trust bank charter application. (<a href="https://www.payoneer.com/integration-partnerships/" target="_blank" rel="noopener">Payoneer integration partnerships page</a>; <a href="https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial" target="_blank" rel="noopener">Payoneer Q4/FY2025 results</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. Payoneer's integration partnerships are built around APIs (mass payouts, working capital, payment tracking, OAuth 2.0 access). (<a href="https://www.payoneer.com/integration-partnerships/" target="_blank" rel="noopener">Payoneer integration partnerships page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed for integration partners (some Payoneer end-customer products, like the business card, carry a separate ~$29.95 annual fee unrelated to partnering).</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">1,500+ affiliate partners (per regional Payoneer affiliate page); 133 technology/channel partnerships tracked by third-party site Partnerbase; nearly 2 million active customers across 190+ countries. (<a href="https://www.payoneer.com/uk/affiliate-program/" target="_blank" rel="noopener">Payoneer Ukraine affiliate page</a>; <a href="https://www.partnerbase.com/payoneer" target="_blank" rel="noopener">Partnerbase Payoneer partnerships</a>; <a href="https://investor.payoneer.com/static-files/0aa365d7-63dd-4d29-8737-d26dc18cd739" target="_blank" rel="noopener">Payoneer 2025 Annual Report</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">SMB payouts</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2026-06-15</span><div class="changelog-content"><div class="detail">Nuvei announced a definitive agreement to acquire Payoneer for $2.75 billion ($7.40/share cash), creating a combined platform for local and cross-border commerce projected to generate ~$3B in annual revenue and process $500B+ in volume across 190+ countries; expected to close mid-2027. (<a href="https://investor.payoneer.com/news-events/news-releases" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-02-17</span><div class="changelog-content"><div class="detail">Payoneer announced plans to launch stablecoin capabilities embedded within its platform, powered by Bridge. (<a href="https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-02-24</span><div class="changelog-content"><div class="detail">Payoneer filed an application with the OCC to establish PAYO Digital Bank, N.A., a U.S. national trust bank charter to support its stablecoin strategy. (<a href="https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-01</span><div class="changelog-content"><div class="detail">Payoneer acquired Dublin-based workforce management startup Boundless for $13M (plus up to $4M earn-out), and separately received in-principle authorization as a Payment Aggregator-Cross Border (PA-CB) in India. (<a href="https://www.fintechfutures.com/keyword/payoneer" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-04</span><div class="changelog-content"><div class="detail">Payoneer launched a partnership with Stripe to enhance and expand its Checkout offering, combining Stripe's technology with Payoneer's local market expertise. (<a href="https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://www.payoneer.com/integration-partnerships/" target="_blank" rel="noopener">Payoneer Integration Partnerships page</a>, <a href="https://www.payoneer.com/affiliate-program/" target="_blank" rel="noopener">Payoneer Affiliate Program page</a>, <a href="https://www.payoneer.com/marketplace/fx-foreign-exchange/" target="_blank" rel="noopener">Payoneer FX page</a>, <a href="https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial" target="_blank" rel="noopener">Payoneer Q4/FY2025 financial results</a>, <a href="https://investor.payoneer.com/static-files/0aa365d7-63dd-4d29-8737-d26dc18cd739" target="_blank" rel="noopener">Payoneer 2025 Annual Report</a>, <a href="https://investor.payoneer.com/news-events/news-releases" target="_blank" rel="noopener">Payoneer investor news releases (Nuvei acquisition)</a>, <a href="https://www.partnerbase.com/payoneer" target="_blank" rel="noopener">Partnerbase Payoneer partnerships</a></p>
+</section>
+<section class="model-card corpay" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Corpay</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Corpay Cross-Border Solutions Partner Program (heritage: FLEETCOR / Cambridge Global Payments)</p>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-3);">Heritage: formerly FLEETCOR / Cambridge Global Payments</p>
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Referral, Reseller / VAR, ISV / Embedded</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Custom / negotiated. Historical partner materials describe 'Broker/Referral, Value-Added Resellers (Affiliates), and OEM options' with 'custom pricing by corridor and payment method' rather than a published percentage. (<a href="https://www.corpay.com/pdfs/integrated-payments/corpay-payment-solutions-partner-placemat-2021.pdf" target="_blank" rel="noopener">Corpay Payment Solutions Partner Placemat, 2021</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed as a formal standard; Corpay markets 'transparent' cross-border payments experience and forward-contract rate locking for clients (e.g., 45-60 day forward contracts), but does not publish specific FX markup disclosure rules for partners or end-customers. (<a href="https://amistrategies.com/cambridge-global-payments-announces-partnership-ami-strategies/" target="_blank" rel="noopener">AMI Strategies/Corpay partnership announcement</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">145+ currencies with delivery to 200+ countries (per partner integration listings); more broadly, Corpay processes payments in more than 160 currencies around the world; 4.1M+ payments annually and 21,000+ customers on the Cross-Border platform; partners with 100+ correspondent banks across 6 continents. (<a href="https://appsource.microsoft.com/en-in/product/dynamics-365-for-operations/fleetcortechnologiesinc1637002052602.corpay-cross-border?tab=overview" target="_blank" rel="noopener">Microsoft AppSource Corpay Cross-Border listing</a>; <a href="https://www.corpay.com/cross-border" target="_blank" rel="noopener">Corpay Cross-Border page</a>; <a href="https://investor.mastercard.com/investor-news/investor-news-details/2025/Mastercard-and-Corpay-Launch-Strategic-Partnership-in-Cross-Border-Payments/default.aspx" target="_blank" rel="noopener">Mastercard/Corpay partnership announcement</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Limited/not emphasized as embedded finance; Corpay's core partner value proposition centers on FX risk management, international payments (bill pay, mass payments), and commercial card programs rather than embeddable accounts/KYC/ledger infrastructure for third-party platforms.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Partial. Corpay supports 'payment execution through basic file upload or API' — API is an option but not positioned as API-first/API-only the way Stripe or Wise are. (<a href="https://www.corpay.com/pdfs/integrated-payments/corpay-payment-solutions-partner-placemat-2021.pdf" target="_blank" rel="noopener">Corpay Payment Solutions Partner Placemat, 2021</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">21,000+ customers on the Cross-Border platform; 100+ correspondent banking and counterparty trading relationships across 6 continents. (<a href="https://www.corpay.com/cross-border" target="_blank" rel="noopener">Corpay Cross-Border page</a>; <a href="https://assets.ctfassets.net/h83dujey17us/1IkolXWa3LQhnQrUoves82/7c6c8acc92a4fe2c9308de8fb03271c1/Corpay_-_Corporate_Placemat_-_2023.pdf" target="_blank" rel="noopener">Corpay Corporate Placemat 2023 PDF</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Enterprise treasury</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2025-04-29</span><div class="changelog-content"><div class="detail">Mastercard and Corpay launched a strategic partnership: Mastercard made a $300M minority investment (~3% equity stake, $10.7B enterprise valuation) in Corpay's cross-border business, and Corpay became the exclusive provider of large-ticket cross-border payments and currency risk management to Mastercard's financial institution customers. (<a href="https://investor.mastercard.com/investor-news/investor-news-details/2025/Mastercard-and-Corpay-Launch-Strategic-Partnership-in-Cross-Border-Payments/default.aspx" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-09-29</span><div class="changelog-content"><div class="detail">Corpay and Mastercard extended near-real-time payments to 22 new markets across Asia, Europe, Middle East, Africa, and Latin America. (<a href="https://tradecredit.substack.com/p/corpay-and-mastercard-expand-near-real-time-payments-to-22-new-global-markets" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-12-08</span><div class="changelog-content"><div class="detail">Corpay completed Mastercard's $300M minority investment into its cross-border business, targeting first customer conversions from Q1 2026. (<a href="https://investor.corpay.com/news-releases/news-release-details/corpay-completes-mastercards-minority-investment-cross-border/" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2025-10 to 2025-11</span><div class="changelog-content"><div class="detail">Corpay closed its acquisition of Alpha (adding ~$55M in Q4 revenue) and, with TPG, completed acquisition of a 34% stake in AvidXchange, expanding its mid-market AP automation and cross-border risk management footprint. (<a href="https://www.fxcintel.com/research/reports/ct-corpay-q3-25-earnings" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://www.corpay.com/cross-border" target="_blank" rel="noopener">Corpay Cross-Border page</a>, <a href="https://www.corpay.com/pdfs/integrated-payments/corpay-payment-solutions-partner-placemat-2021.pdf" target="_blank" rel="noopener">Corpay Payment Solutions Partner Placemat (2021, PDF)</a>, <a href="https://www.corpay.com/corporate-newsroom/7226/fleetcor-to-acquire-cambridge-global-payments-a-leading-b2b-international-payments-provider" target="_blank" rel="noopener">FLEETCOR to Acquire Cambridge Global Payments (2017)</a>, <a href="https://investor.mastercard.com/investor-news/investor-news-details/2025/Mastercard-and-Corpay-Launch-Strategic-Partnership-in-Cross-Border-Payments/default.aspx" target="_blank" rel="noopener">Mastercard/Corpay partnership announcement</a>, <a href="https://investor.corpay.com/news-releases/news-release-details/corpay-completes-mastercards-minority-investment-cross-border/" target="_blank" rel="noopener">Corpay completes Mastercard minority investment</a>, <a href="https://www.fxcintel.com/research/reports/ct-corpay-q3-25-earnings" target="_blank" rel="noopener">FXC Intelligence: Corpay Q3 2025 earnings</a>, <a href="https://appsource.microsoft.com/en-in/product/dynamics-365-for-operations/fleetcortechnologiesinc1637002052602.corpay-cross-border?tab=overview" target="_blank" rel="noopener">Microsoft AppSource: Corpay Cross-Border listing</a></p>
+</section>
+<section class="model-card convera" style="margin-bottom:var(--space-8);">
+<h2 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-1);">Convera</h2>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-2);">Convera Partner Program (heritage: Western Union Business Solutions)</p>
+<p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-3);">Heritage: formerly Western Union Business Solutions</p>
+<div style="border-top:1px solid var(--border-subtle);">
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Partner types</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Referral, ISV / Embedded, Consulting partner</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Tiers</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;"><span title="Not publicly disclosed">&mdash;</span></div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Revenue share model</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed; Convera markets 'new revenue opportunities' for software and advisory partners without publishing specific percentages or a formal referral/rev-share table. (<a href="https://convera.com/partners/" target="_blank" rel="noopener">Convera Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">FX markup transparency</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed on the partner page.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Cross-border coverage</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">140+ currencies across 200+ countries and territories; processes roughly $190 billion a year in cross-border volume per third-party analysis; built on 40+ years of foreign-exchange expertise inherited from Western Union Business Solutions. (<a href="https://convera.com/partners/" target="_blank" rel="noopener">Convera Partners page</a>; <a href="https://tomcn.uk/news/2026-04-05-convera-ripple-stablecoin-sandwich-cross-border-payments" target="_blank" rel="noopener">Tom Wang analysis of Convera/Ripple partnership</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Embedded finance capabilities</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes, for software partners. Convera enables partners to 'embed multi-currency payouts into your platform via API,' and as of March 2026 added stablecoin-enabled settlement rails through its Ripple partnership. (<a href="https://convera.com/partners/" target="_blank" rel="noopener">Convera Partners page</a>; <a href="https://convera.com/blog/company-news/ripple-convera-stablecoin-enabled-global-payments/" target="_blank" rel="noopener">Convera/Ripple stablecoin partnership</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">API-first</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Yes. The software/technology partner track is explicitly built around embedding 'multi-currency payouts into your platform via API.' (<a href="https://convera.com/partners/" target="_blank" rel="noopener">Convera Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Deal registration</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">MDF available</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Annual partner fee</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Not publicly disclosed.</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Ecosystem size</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">550+ active partners. (<a href="https://convera.com/partners/" target="_blank" rel="noopener">Convera Partners page</a>)</div></div>
+<div class="spec-row" style="display:block;padding:var(--space-3) 0;"><div class="spec-label" style="margin-bottom:4px;font-weight:600;color:var(--text);">Best-fit ICP</div><div style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.6;">Cross-border B2B</div></div>
+</div>
+<h3 style="font-size:var(--text-base);font-weight:700;margin-top:var(--space-5);margin-bottom:var(--space-2);">Recent program changes</h3>
+<div class="changelog-entry"><span class="changelog-date">2023-07-10</span><div class="changelog-content"><div class="detail">Convera announced the final closing of its transition from Western Union Business Solutions, completing its full rebrand and spin-off. (<a href="https://www.businesswire.com/news/home/20230710685281/en/Convera-Announces-Final-Closing-of-Western-Union-Business-Solutions-Completing-Global-Transition" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2026-03-31</span><div class="changelog-content"><div class="detail">Convera announced a strategic partnership with Ripple to deliver stablecoin-enabled settlement across its 200-country, 140-currency network, capitalizing on the GENIUS Act's new US stablecoin regulatory framework. (<a href="https://convera.com/blog/company-news/ripple-convera-stablecoin-enabled-global-payments/" target="_blank" rel="noopener">source</a>)</div></div></div>
+<div class="changelog-entry"><span class="changelog-date">2021-08-12</span><div class="changelog-content"><div class="detail">Western Union Business Solutions announced its rename to Convera as part of its carve-out from Western Union. (<a href="https://convera.com/blog/company-news/western-union-business-solutions-to-be-renamed-convera/" target="_blank" rel="noopener">source</a>)</div></div></div>
+<p style="font-size:var(--text-xs);color:var(--text-faint);margin-top:var(--space-4);">Sources: <a href="https://convera.com/partners/" target="_blank" rel="noopener">Convera Partners page</a>, <a href="https://convera.com/blog/company-news/ripple-convera-stablecoin-enabled-global-payments/" target="_blank" rel="noopener">Convera/Ripple stablecoin partnership announcement</a>, <a href="https://convera.com/blog/company-news/western-union-business-solutions-to-be-renamed-convera/" target="_blank" rel="noopener">Western Union Business Solutions renamed to Convera</a>, <a href="https://www.businesswire.com/news/home/20230710685281/en/Convera-Announces-Final-Closing-of-Western-Union-Business-Solutions-Completing-Global-Transition" target="_blank" rel="noopener">Business Wire: Convera final closing of WUBS transition</a>, <a href="https://tomcn.uk/news/2026-04-05-convera-ripple-stablecoin-sandwich-cross-border-payments" target="_blank" rel="noopener">Tom Wang analysis: Convera/Ripple stablecoin partnership</a></p>
+</section>
+</div>
+<!-- Tab: Insights -->
+<div class="tab-panel" id="tab-insights">
+<h2 class="section-title">Insights</h2>
+<article style="margin-bottom:var(--space-8);">
+<h3 style="font-size:var(--text-lg);font-weight:700;margin-bottom:var(--space-2);">0 of 11 payment programs publicly disclose exact rev-share percentages</h3>
+<p style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.7;margin-bottom:var(--space-2);">Every vendor in this tracker — from Stripe to Convera — describes partner revenue share as "custom," "negotiated," or purely qualitative language like "earn commissions on volume." Even the most detailed public disclosures, such as <a href="https://docs.stripe.com/partners/platforms" target="_blank" rel="noopener">Stripe's SaaS platform partner docs</a> (which publish dollar-value tier thresholds of $1M in partnership revenue or $300M in payment volume for Premier status) and <a href="https://www.adyen.com/knowledge-hub/partner-program" target="_blank" rel="noopener">Adyen's three-tier structure</a>, stop short of naming an actual percentage. Buyers and prospective partners cannot comparison-shop rev-share terms without a direct sales conversation.</p>
+<p style="font-size:var(--text-sm);font-style:italic;color:var(--text-faint);">Why this matters for partnerships: expect a discovery call before you can model your own economics — build extra time into partner evaluation cycles.</p>
+</article>
+<article style="margin-bottom:var(--space-8);">
+<h3 style="font-size:var(--text-lg);font-weight:700;margin-bottom:var(--space-2);">Only Wise guarantees a quantified 0% FX markup</h3>
+<p style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.7;margin-bottom:var(--space-2);">Wise is the sole vendor in this set to publish a hard, quantified FX transparency commitment: the real mid-market rate with 0% markup, plus a running average all-in fee of about 0.53% globally as of December 2025, down from 0.59% a year earlier (<a href="https://wise.com/us/blog/december-fee-review-2025" target="_blank" rel="noopener">Wise December 2025 fee review</a>; <a href="https://wise.com/gb/blog/mid-market-rate-explained" target="_blank" rel="noopener">Wise mid-market rate explainer</a>). The other ten providers either stay silent on FX markup entirely or use unquantified language such as "transparent, straightforward pricing" — Adyen and Payoneer fall into this partial-disclosure middle ground.</p>
+<p style="font-size:var(--text-sm);font-style:italic;color:var(--text-faint);">Why this matters for partnerships: if FX transparency is a selling point for your end customers, Wise Platform is currently the only vendor whose marketing claim is independently verifiable.</p>
+</article>
+<article style="margin-bottom:var(--space-8);">
+<h3 style="font-size:var(--text-lg);font-weight:700;margin-bottom:var(--space-2);">4 of 11 providers added stablecoin rails in the trailing 12 months</h3>
+<p style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.7;margin-bottom:var(--space-2);">Stablecoin infrastructure moved from experimental to embedded-partner-strategy territory across the sector in a short window: Rapyd launched Stablecoin Payment Solutions in September 2025 (<a href="https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview" target="_blank" rel="noopener">FXC Intelligence</a>), Nium joined Visa's stablecoin settlement pilot in November 2025 and added a Circle/USDC partnership in May 2026 (<a href="https://www.nium.com/newsroom/nium-joins-visa-stablecoin-settlement-cross-border-payments" target="_blank" rel="noopener">Nium newsroom</a>), Convera partnered with Ripple for stablecoin-enabled settlement in March 2026 (<a href="https://convera.com/blog/company-news/ripple-convera-stablecoin-enabled-global-payments/" target="_blank" rel="noopener">Convera/Ripple announcement</a>), and Payoneer announced Bridge-powered stablecoin capabilities alongside an OCC trust bank charter application in February 2026 (<a href="https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-fourth-quarter-and-full-year-2025-financial" target="_blank" rel="noopener">Payoneer Q4/FY2025 results</a>).</p>
+<p style="font-size:var(--text-sm);font-style:italic;color:var(--text-faint);">Why this matters for partnerships: partners building multi-year integrations should ask each vendor directly about stablecoin settlement roadmaps — this is now a live competitive axis, not a future one.</p>
+</article>
+<article style="margin-bottom:var(--space-8);">
+<h3 style="font-size:var(--text-lg);font-weight:700;margin-bottom:var(--space-2);">Payoneer's partner program is a moving target mid-acquisition</h3>
+<p style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.7;margin-bottom:var(--space-2);">Nuvei's announced $2.75 billion all-cash acquisition of Payoneer ($7.40/share, announced June 15, 2026, expected to close mid-2027) will combine two payment networks into one projected to process $500 billion or more in volume across 190+ countries (<a href="https://investor.payoneer.com/news-events/news-releases" target="_blank" rel="noopener">Payoneer investor newsroom</a>). Partners evaluating Payoneer's Integration Partnerships or Affiliate Program today should factor in likely program consolidation once the deal closes.</p>
+<p style="font-size:var(--text-sm);font-style:italic;color:var(--text-faint);">Why this matters for partnerships: negotiate contract terms with an eye toward the post-acquisition entity — ask specifically what happens to existing partner agreements after close.</p>
+</article>
+</div>
+<!-- Tab: Changelog -->
+<div class="tab-panel" id="tab-changelog">
+<h2 class="section-title">Running Changelog</h2>
+<div class="changelog">
+<div class="changelog-entry">
+<span class="changelog-date">Jul 3</span>
+<div class="changelog-content">
+<div class="title"><span class="badge new">Launch</span> Initial launch &mdash; July 3, 2026</div>
+<div class="detail">Payments Partner Program Tracker launched, covering 11 payments and cross-border providers: Stripe, Adyen, Airwallex, Wise Platform, Rapyd, Nium, Currencycloud, dLocal, Payoneer, Corpay, and Convera.</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<a href="https://www.perplexity.ai/computer" rel="noopener noreferrer" target="_blank">Created with Perplexity Computer</a>
+</footer>
+</div>
+<script>
+// Theme toggle
+(function(){
+  const btn = document.querySelector('[data-theme-toggle]');
+  const root = document.documentElement;
+  let theme = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  root.setAttribute('data-theme', theme);
+  updateIcon();
+  btn.addEventListener('click', () => {
+    theme = theme === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', theme);
+    updateIcon();
+  });
+  function updateIcon() {
+    btn.innerHTML = theme === 'dark'
+      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+})();
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+</script>
+
+</div>
