@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T09:26:00-04:00",
+  "generated_at": "2026-09-07T09:29:00-04:00",
   "vendors": [
     {
       "vendor_name": "Stripe",
@@ -18,14 +18,24 @@
       ],
       "revenue_share_model": "Custom / negotiated. SaaS platforms using Stripe Connect are eligible for a 'revenue sharing' program on processing volume; Premier Partner (SaaS track) requires at least $1M in partnership revenue for buy-rate platforms or $300M in payment volume for referral-model platforms. Services-track partners earn referral/co-sell support rather than disclosed percentages. Exact rev-share percentages are not publicly disclosed. ([Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
       "fx_markup_transparency": "Not publicly detailed for partners. Stripe discloses over 125+ global payment methods and currency support in its core payments docs, but does not publish standardized FX markup disclosure requirements for partners or end-customers on its partner pages. ([Stripe Sessions 2025 product update](https://stripe.com/blog/top-product-updates-sessions-2025))",
-      "cross_border_coverage": "135+ currencies accepted; 40+ countries with full Stripe account support; 125+ local payment methods; Sessions 2026 previewed Global Payouts to 100+ countries in fiat and 160 countries in stablecoins, plus stablecoin support for 41 additional markets. ([Stripe currencies docs](https://docs.stripe.com/currencies); [Stripe Sessions 2026](https://stripe.com/blog/everything-we-announced-at-sessions-2026))",
-      "embedded_finance_capabilities": "Yes. Stripe Connect enables embedded payments, payouts, and marketplace/platform account management; Stripe also offers Issuing, Treasury, Managed Payments, marketplace wallets, Treasury-for-platforms, and previewed stablecoin seller payouts across 100 additional countries. ([Stripe Sessions 2026](https://stripe.com/blog/everything-we-announced-at-sessions-2026); [Stripe Sessions 2025 product update](https://stripe.com/blog/top-product-updates-sessions-2025))",
+      "cross_border_coverage": "135+ currencies accepted; 40+ countries with full Stripe account support; 125+ local payment methods; Sessions 2026 previewed Global Payouts to 100+ countries in fiat and 160 countries in stablecoins, plus stablecoin support for 41 additional markets. Stripe Treasury launched in Australia with payouts to nearly 100 countries and support for holding AUD, USD, GBP, and EUR and converting 10 currencies. ([Stripe currencies docs](https://docs.stripe.com/currencies); [Stripe Sessions 2026](https://stripe.com/blog/everything-we-announced-at-sessions-2026); [Stripe Treasury Australia](https://stripe.com/newsroom/news/tour-sydney-2026))",
+      "embedded_finance_capabilities": "Yes. Stripe Connect enables embedded payments, payouts, and marketplace/platform account management; Stripe also offers Issuing, Treasury, Managed Payments, marketplace wallets, Treasury-for-platforms, and previewed stablecoin seller payouts across 100 additional countries. The DBS partnership adds Asian money-movement, cash-management, and agentic-commerce connectivity. ([Stripe Sessions 2026](https://stripe.com/blog/everything-we-announced-at-sessions-2026); [Stripe Treasury Australia](https://stripe.com/newsroom/news/tour-sydney-2026); [DBS/Stripe partnership](https://www.dbs.com/newsroom/DBS_and_Stripe_partner_to_accelerate_the_digital_and_AI_powered_economy_in_Asia))",
       "api_first": "Yes. Stripe's entire partner ecosystem is built around API integration (Payment Intents, Connect, Checkout, Payment Element, webhooks). ([Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
       "deal_registration": "Yes. Services-track Partner and Premier Partner tiers both have 'Deal registration to request co-selling support' as a stated benefit. ([Stripe Services partners docs](https://docs.stripe.com/partners/services))",
       "mdf_available": "Yes. Both Partner and Premier tiers in the Services track are eligible to request market development funds (MDF); Premier Partners in the SaaS track get MDF as an added benefit. ([Stripe Services partners docs](https://docs.stripe.com/partners/services); [Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
       "annual_partner_fee": "No standard published fee for the core Partner Ecosystem; one third-party affiliate resource cites a legacy 'Stripe Verified Partner Program' with a $250/year fee, but this is not corroborated on Stripe's current official pages. ([Wise blog on Stripe affiliate program](https://wise.com/gb/blog/stripe-affiliate-program))",
       "ecosystem_size": "Not disclosed as a specific partner count on official pages; described as 'thousands of trusted partners around the world.' ([Stripe Partner Ecosystem page](https://stripe.com/partners))",
       "recent_program_changes": [
+        {
+          "date": "2026-08-19",
+          "change": "Stripe launched Treasury in Australia, giving businesses one platform to accept payments, hold and convert funds, and pay recipients in nearly 100 countries; Australian businesses can hold AUD, USD, GBP, and EUR and convert between 10 supported currencies, including HKD, SGD, and NZD.",
+          "source": "https://stripe.com/newsroom/news/tour-sydney-2026"
+        },
+        {
+          "date": "2026-08-27",
+          "change": "Stripe and DBS announced a strategic partnership for cross-border payments and agentic commerce in Asia: Stripe will use DBS money-movement and cash-management capabilities, while DBS will explore Stripe's programmable financial services and embedded-finance platform for institutional clients; the companies will also explore joint agentic-AI capabilities.",
+          "source": "https://www.dbs.com/newsroom/DBS_and_Stripe_partner_to_accelerate_the_digital_and_AI_powered_economy_in_Asia"
+        },
         {
           "date": "2026-07-21",
           "change": "Stripe powered Ramp stablecoin Bill Pay and Stablecoin Accounts through Bridge and Privy, enabling bank-funded stablecoin payments and 24/7 stablecoin balances/payments for businesses, including global supplier payments.",
@@ -99,6 +109,14 @@
         {
           "label": "stripe.com update",
           "url": "https://stripe.com/blog/everything-we-announced-at-sessions-2026"
+        },
+        {
+          "label": "www.dbs.com update",
+          "url": "https://www.dbs.com/newsroom/DBS_and_Stripe_partner_to_accelerate_the_digital_and_AI_powered_economy_in_Asia"
+        },
+        {
+          "label": "stripe.com update",
+          "url": "https://stripe.com/newsroom/news/tour-sydney-2026"
         }
       ]
     },
@@ -229,13 +247,18 @@
       "revenue_share_model": "Custom / negotiated. Airwallex states partners get 'referral rewards, revenue-sharing models, and co-marketing support' but does not publish specific percentages. ([Airwallex Partners page](https://www.airwallex.com/partners))",
       "fx_markup_transparency": "Not publicly detailed for partners on the partner program page.",
       "cross_border_coverage": "80+ licenses and 1,000+ partners globally; Wero is now available to eligible merchants globally without a European entity, live for shoppers in Germany and Belgium with France following in October 2026. ([Airwallex Partners page](https://www.airwallex.com/partners); [Airwallex Wero](https://www.airwallex.com/en-us/blog/wero-payment-method-airwallex))",
-      "embedded_finance_capabilities": "Yes. Technology partners can integrate Airwallex APIs to embed Business Accounts, Spend Management, and Payments directly into their own product. ([Airwallex Partners page](https://www.airwallex.com/partners))",
+      "embedded_finance_capabilities": "Yes. Technology partners can integrate Airwallex APIs to embed Business Accounts, Spend Management, and Payments; its August 2026 Affirm partnership adds pay-over-time checkout for eligible US shoppers in 35 merchant countries without a separate integration. ([Airwallex Partners page](https://www.airwallex.com/partners); [Airwallex/Affirm](https://www.airwallex.com/global/newsroom/airwallex-adds-affirms-flexible-pay-over-time-options-for-us-shoppers))",
       "api_first": "Yes. Airwallex explicitly promotes 'Airwallex's APIs' as the mechanism for technology partners to unlock new monetization opportunities. ([Airwallex Partners page](https://www.airwallex.com/partners))",
       "deal_registration": "Not publicly disclosed.",
       "mdf_available": "Not publicly disclosed on the partner page (co-marketing support is mentioned generally).",
       "annual_partner_fee": "Not publicly disclosed.",
       "ecosystem_size": "1,000+ partners globally; 200,000+ Airwallex customers. ([Airwallex Partners page](https://www.airwallex.com/partners))",
       "recent_program_changes": [
+        {
+          "date": "2026-08-13",
+          "change": "Airwallex and Affirm added Affirm pay-over-time checkout for eligible US shoppers: merchants based in 35 countries can offer four interest-free installments or monthly plans through Airwallex without a separate integration.",
+          "source": "https://www.airwallex.com/global/newsroom/airwallex-adds-affirms-flexible-pay-over-time-options-for-us-shoppers"
+        },
         {
           "date": "2026-07-30",
           "change": "Airwallex began supporting Wero through its direct EPI partnership: eligible merchants globally can accept Wero without a European entity; Germany and Belgium are live, France is slated for October 2026, and a Shopify plugin is available.",
@@ -274,6 +297,10 @@
         {
           "label": "www.airwallex.com update",
           "url": "https://www.airwallex.com/en-us/blog/wero-payment-method-airwallex"
+        },
+        {
+          "label": "www.airwallex.com update",
+          "url": "https://www.airwallex.com/global/newsroom/airwallex-adds-affirms-flexible-pay-over-time-options-for-us-shoppers"
         }
       ]
     },
@@ -288,14 +315,19 @@
       "tiers": [],
       "revenue_share_model": "Custom / negotiated for embedding partners (banks, enterprises, platforms); not structured as a public partner rev-share/tier program like Stripe or Adyen. Wise's own end-customer pricing is transparent: average fee of 0.53% globally as of December 2025, down from 0.59% a year earlier, using the mid-market rate with zero FX markup. ([Wise December 2025 fee review](https://wise.com/us/blog/december-fee-review-2025); [FXC Intelligence Wise investor day insights](https://www.fxcintel.com/research/reports/ct-wise-2025-investor-day))",
       "fx_markup_transparency": "Yes — Wise's core differentiator. Wise uses the real mid-market exchange rate with 0% markup and charges a separate, transparent fee (fixed + variable, ~0.33%-0.65% depending on corridor) disclosed upfront before every transfer; this transparency extends to Wise Platform's embedded offering for partner banks/enterprises. ([Wise mid-market rate explainer](https://wise.com/gb/blog/mid-market-rate-explained); [Wise December 2025 fee review](https://wise.com/us/blog/december-fee-review-2025))",
-      "cross_border_coverage": "160+ countries; 40+ currencies; new direct connections to domestic payment systems in Brazil and Japan; new licenses in South Africa, the UAE, and Thailand. ([Wise Platform page](https://wise.com/platform/); [Wise FY26 results](https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results))",
+      "cross_border_coverage": "160+ countries; 40+ currencies; new direct connections to domestic payment systems in Brazil and Japan; new licenses in South Africa, the UAE, and Thailand; GoTyme-powered transfers reach 160+ countries. ([Wise Platform page](https://wise.com/platform/); [Wise FY26 results](https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results); [Wise Platform Q2 2026 update](https://wise.com/gb/blog/wise-platform-mission-update-q2-2026))",
       "embedded_finance_capabilities": "Yes. Wise Platform lets banks, enterprises, and platforms embed send/receive money, card issuing, multi-currency accounts, customizable onboarding/KYC, and Swift messaging integration via the Wise Platform API. ([Wise Platform page](https://wise.com/platform/))",
       "api_first": "Yes. Wise Platform explicitly offers connection 'via Swift or API' with full API documentation for partners. ([Wise Platform page](https://wise.com/platform/))",
       "deal_registration": "Not publicly disclosed (Wise Platform is a direct enterprise/bank partnership model rather than a classic channel-partner program).",
       "mdf_available": "Not publicly disclosed.",
       "annual_partner_fee": "Not publicly disclosed; embedding partners negotiate commercial terms directly with Wise.",
-      "ecosystem_size": "70+ licenses worldwide; 950+ engineers; Wise FY26 added Platform partners including UniCredit, Raiffeisen Bank, MBSB Bank, and Capitec. ([Wise Platform page](https://wise.com/platform/); [Wise FY26 results](https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results))",
+      "ecosystem_size": "70+ licenses worldwide; 950+ engineers; Wise FY26 added Platform partners including UniCredit, Raiffeisen Bank, MBSB Bank, and Capitec; Q2 2026 expanded Raiffeisen Bank International and GoTyme Bank partnerships and added Raiffeisen Bank Kosovo. ([Wise Platform page](https://wise.com/platform/); [Wise FY26 results](https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results); [Wise Platform Q2 2026 update](https://wise.com/gb/blog/wise-platform-mission-update-q2-2026))",
       "recent_program_changes": [
+        {
+          "date": "2026-08-19",
+          "change": "Wise Platform expanded its Raiffeisen Bank International partnership and its GoTyme Bank partnership in the Philippines; GoTyme launched Send Money Abroad powered by Wise Platform for transfers to 160+ countries, and Raiffeisen Bank Kosovo joined the Wise Platform partner network.",
+          "source": "https://wise.com/gb/blog/wise-platform-mission-update-q2-2026"
+        },
         {
           "date": "2026-06-25",
           "change": "Wise FY26 results reported two new direct domestic-payment connections in Brazil and Japan, new licenses in South Africa, the UAE, and Thailand, new Wise Platform partners UniCredit, Raiffeisen Bank, MBSB Bank, and Capitec (April 2026), and Assets launched in Brazil.",
@@ -356,6 +388,10 @@
         {
           "label": "owners.wise.com update",
           "url": "https://owners.wise.com/news-releases/news-release-details/wise-group-plc-reports-full-year-2026-financial-results"
+        },
+        {
+          "label": "wise.com update",
+          "url": "https://wise.com/gb/blog/wise-platform-mission-update-q2-2026"
         }
       ]
     },
@@ -442,14 +478,24 @@
       "tiers": [],
       "revenue_share_model": "Custom / negotiated. Referral Partners 'increase revenue through commissions on international payments'; no public percentage figures. ([Nium Partners page](https://www.nium.com/partners))",
       "fx_markup_transparency": "Not publicly disclosed on the partner program page.",
-      "cross_border_coverage": "Global payouts to 190+ countries and territories; 100+ currencies in 100+ markets, with stated emphasis on emerging-market reach. ([Nium Partners page](https://www.nium.com/partners))",
-      "embedded_finance_capabilities": "Yes. Nium embeds multi-currency accounts, FX, cross-border bulk payouts, card programs, and now live Coinbase-powered USDC funding/settlement and USDC-backed cards; its Cypher acquisition adds non-custodial wallet and digital-asset issuing expertise. ([Nium Partners page](https://www.nium.com/partners); [Nium/Coinbase](https://www.nium.com/newsroom/nium-coinbase-usdc-global-payments); [Nium/Cypher](https://www.nium.com/newsroom/nium-acquires-cypher))",
+      "cross_border_coverage": "190+ countries / 100+ currencies; live Coinbase USDC funding/settlement and new USDC funding for Global Payouts; domestic US card issuance launched with USD at launch, while Visa/Mastercard cards connect to Nium's global network. ([Nium/Coinbase](https://www.nium.com/newsroom/nium-coinbase-usdc-global-payments); [Nium USDC funding](https://www.nium.com/newsroom/nium-usdc-funding-global-payouts); [Nium US card issuance](https://www.nium.com/newsroom/nium-us-card-issuance))",
+      "embedded_finance_capabilities": "Yes. Nium embeds multi-currency accounts, FX, cross-border bulk payouts, card programs, and Coinbase-powered USDC funding/settlement; its Cypher acquisition adds non-custodial wallet and digital-asset issuing expertise, and its August 2026 launches add US domestic card issuance plus no-integration USDC funding for fiat payouts. ([Nium Partners page](https://www.nium.com/partners); [Nium/Coinbase](https://www.nium.com/newsroom/nium-coinbase-usdc-global-payments); [Nium USDC funding](https://www.nium.com/newsroom/nium-usdc-funding-global-payouts); [Nium US card issuance](https://www.nium.com/newsroom/nium-us-card-issuance))",
       "api_first": "Yes. Nium offers 'One API' for money movement plus flexible interfaces (APIs/Portal) and streamlined or tailored integrations. ([Nium Partners page](https://www.nium.com/partners))",
       "deal_registration": "Not publicly disclosed.",
       "mdf_available": "Not publicly disclosed.",
       "annual_partner_fee": "Not publicly disclosed.",
       "ecosystem_size": "1,000+ companies on the Nium payments infrastructure. ([Nium Partners page](https://www.nium.com/partners))",
       "recent_program_changes": [
+        {
+          "date": "2026-08-19",
+          "change": "Nium launched domestic card issuance in the United States, extending its multi-region issuing platform to North America; businesses can issue Visa or Mastercard cards in USD at launch while retaining access to Nium's payment network spanning 190+ countries.",
+          "source": "https://www.nium.com/newsroom/nium-us-card-issuance"
+        },
+        {
+          "date": "2026-08-27",
+          "change": "Nium launched USDC funding for Global Payouts: businesses can fund a Nium account in USDC and pay out in fiat across 190+ countries with no new integration, turning idle stablecoin balances into working capital.",
+          "source": "https://www.nium.com/newsroom/nium-usdc-funding-global-payouts"
+        },
         {
           "date": "2026-07-08",
           "change": "Nium acquired Cypher, a crypto-native non-custodial wallet and issuing company; Cypher's team and digital-asset expertise expand Nium's fiat-to-on-chain bridge, wallet, issuing, and multi-network infrastructure.",
@@ -510,6 +556,14 @@
         {
           "label": "www.nium.com update",
           "url": "https://www.nium.com/newsroom/nium-acquires-cypher"
+        },
+        {
+          "label": "www.nium.com update",
+          "url": "https://www.nium.com/newsroom/nium-usdc-funding-global-payouts"
+        },
+        {
+          "label": "www.nium.com update",
+          "url": "https://www.nium.com/newsroom/nium-us-card-issuance"
         }
       ]
     },
@@ -582,14 +636,19 @@
       "tiers": [],
       "revenue_share_model": "Custom / negotiated. dLocal advertises 'commissions' and 'a new revenue stream' for partners, and a referral program that pays commissions per successful referral, but does not publish specific percentages. No partner exclusivity is required. ([dLocal Partners page](https://dlocal.com/partners/))",
       "fx_markup_transparency": "Not publicly disclosed; dLocal references 'seamless FX' as part of its single-API offering without detailing markup disclosure practices.",
-      "cross_border_coverage": "Operates in 60+ countries and 40+ emerging markets; supports 900-1,000+ local/alternative payment methods; Stablecoin Full covers 44+ emerging markets and ACI partnership launched Brazil/Mexico coverage with Argentina, Chile, Colombia, and Peru planned. ([dLocal Partners page](https://dlocal.com/partners/); [Stablecoin Full](https://www.dlocal.com/press-releases/dlocal-launches-the-most-seamless-stablecoin-integration-for-payments-in-emerging-markets/); [ACI/dLocal](https://www.dlocal.com/press-releases/aci-worldwide-and-dlocal-bring-latin-americas-leading-local-payment-methods-to-global-merchants/))",
-      "embedded_finance_capabilities": "Expanded beyond local payment acceptance: Stablecoin Full provides single-API stablecoin collection, conversion, payout, and treasury orchestration across 44+ emerging markets; BNPL Fuse adds one-API local installment financing with dLocal handling licensing, compliance, and settlement. ([dLocal Stablecoin Full](https://www.dlocal.com/press-releases/dlocal-launches-the-most-seamless-stablecoin-integration-for-payments-in-emerging-markets/); [dLocal BNPL Fuse](https://www.dlocal.com/press-releases/dlocal-expands-bnpl-fuse-unlocking-transparent-financing-for-500m-buyers-in-emerging-markets/))",
+      "cross_border_coverage": "Operates in 60+ countries and 40+ emerging markets; supports 900-1,000+ local/alternative payment methods; Stablecoin Full covers 44+ emerging markets; dMoRe runs on dLocal rails across 60+ emerging markets. ([dLocal Partners page](https://dlocal.com/partners/); [Stablecoin Full](https://www.dlocal.com/press-releases/dlocal-launches-the-most-seamless-stablecoin-integration-for-payments-in-emerging-markets/); [dLocal dMoRe](https://www.dlocal.com/press-releases/dlocal-launches-dmore-to-remove-operational-barriers-between-global-businesses-and-emerging-markets/))",
+      "embedded_finance_capabilities": "Expanded beyond local payment acceptance: Stablecoin Full provides single-API stablecoin collection, conversion, payout, and treasury orchestration across 44+ emerging markets; BNPL Fuse adds local installment financing; dMoRe now adds Merchant of Record legal, tax, and compliance capabilities across 60+ emerging markets. ([dLocal Stablecoin Full](https://www.dlocal.com/press-releases/dlocal-launches-the-most-seamless-stablecoin-integration-for-payments-in-emerging-markets/); [dLocal BNPL Fuse](https://www.dlocal.com/press-releases/dlocal-expands-bnpl-fuse-unlocking-transparent-financing-for-500m-buyers-in-emerging-markets/); [dLocal dMoRe](https://www.dlocal.com/press-releases/dlocal-launches-dmore-to-remove-operational-barriers-between-global-businesses-and-emerging-markets/))",
       "api_first": "Yes. dLocal explicitly manages local payments, FX, and cross-border transactions 'through one single API.' ([dLocal Partners page](https://dlocal.com/partners/))",
       "deal_registration": "Not publicly disclosed.",
       "mdf_available": "Not publicly disclosed.",
       "annual_partner_fee": "Not publicly disclosed.",
       "ecosystem_size": "760+ merchants served; partner types include payment/financial partners, technology/platform partners (SaaS, ERP, e-commerce, system integrators), and consulting/referral partners. ([dLocal Partners page](https://dlocal.com/partners/))",
       "recent_program_changes": [
+        {
+          "date": "2026-08-26",
+          "change": "dLocal launched dMoRe, a Merchant of Record solution for global SaaS, gaming, and ecommerce businesses entering emerging markets; dLocal takes on local legal, tax, and compliance responsibilities and runs the service on its payment rails across 60+ emerging markets, shortening launch timelines to weeks.",
+          "source": "https://www.dlocal.com/press-releases/dlocal-launches-dmore-to-remove-operational-barriers-between-global-businesses-and-emerging-markets/"
+        },
         {
           "date": "2026-07-28",
           "change": "dLocal and ACI Worldwide partnered to bring seven local payment methods to global merchants through one integration in Brazil and Mexico; Argentina, Chile, Colombia, and Peru are planned next.",
@@ -650,6 +709,10 @@
         {
           "label": "www.dlocal.com update",
           "url": "https://www.dlocal.com/press-releases/dlocal-expands-bnpl-fuse-unlocking-transparent-financing-for-500m-buyers-in-emerging-markets/"
+        },
+        {
+          "label": "www.dlocal.com update",
+          "url": "https://www.dlocal.com/press-releases/dlocal-launches-dmore-to-remove-operational-barriers-between-global-businesses-and-emerging-markets/"
         }
       ]
     },
@@ -673,6 +736,11 @@
       "annual_partner_fee": "Not publicly disclosed for integration partners (some Payoneer end-customer products, like the business card, carry a separate ~$29.95 annual fee unrelated to partnering).",
       "ecosystem_size": "1,500+ affiliate partners (per regional Payoneer affiliate page); 133 technology/channel partnerships tracked by third-party site Partnerbase; nearly 2 million active customers across 190+ countries. ([Payoneer Ukraine affiliate page](https://www.payoneer.com/uk/affiliate-program/); [Partnerbase Payoneer partnerships](https://www.partnerbase.com/payoneer); [Payoneer 2025 Annual Report](https://investor.payoneer.com/static-files/0aa365d7-63dd-4d29-8737-d26dc18cd739))",
       "recent_program_changes": [
+        {
+          "date": "2026-08-11",
+          "change": "Payoneer filed a definitive proxy for the pending Nuvei acquisition and scheduled a virtual stockholder meeting for September 14, 2026. The $2.75B transaction still requires Payoneer stockholder and regulatory approvals and had not closed; Payoneer remains independent until closing.",
+          "source": "https://www.sec.gov/Archives/edgar/data/1845815/000110465926094105/tm2619600-2_defm14a.htm"
+        },
         {
           "date": "2026-07-07",
           "change": "Payoneer's DEFA14A materials confirmed the Nuvei acquisition remains pending: shareholder approval and regulatory clearances are still required, an estimated shareholder vote is expected around August–September 2026, closing remains estimated for mid-2027, and Payoneer remains independent and Nasdaq-listed until closing.",
@@ -738,6 +806,10 @@
         {
           "label": "investor.payoneer.com update",
           "url": "https://investor.payoneer.com/static-files/c0e1ccd0-a632-4346-99be-872817f971e2"
+        },
+        {
+          "label": "www.sec.gov update",
+          "url": "https://www.sec.gov/Archives/edgar/data/1845815/000110465926094105/tm2619600-2_defm14a.htm"
         }
       ]
     },
