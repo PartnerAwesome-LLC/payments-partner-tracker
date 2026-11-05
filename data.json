@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T08:09:00-05:00",
+  "generated_at": "2026-11-05T14:00:00+00:00",
   "vendors": [
     {
       "vendor_name": "Stripe",
@@ -19,13 +19,18 @@
       "revenue_share_model": "Custom / negotiated. SaaS platforms using Stripe Connect are eligible for a 'revenue sharing' program on processing volume; Premier Partner (SaaS track) requires at least $1M in partnership revenue for buy-rate platforms or $300M in payment volume for referral-model platforms. Services-track partners earn referral/co-sell support rather than disclosed percentages. Exact rev-share percentages are not publicly disclosed. ([Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
       "fx_markup_transparency": "Not publicly detailed for partners. Stripe discloses over 125+ global payment methods and currency support in its core payments docs, but does not publish standardized FX markup disclosure requirements for partners or end-customers on its partner pages. ([Stripe Sessions 2025 product update](https://stripe.com/blog/top-product-updates-sessions-2025))",
       "cross_border_coverage": "135+ currencies accepted and 40+ countries with full Stripe account support. The October 2026 update adds instant stablecoin payouts to 160 markets and stablecoin card issuing in 27 EU countries, bringing availability to 65+ countries worldwide; Stripe plans to expand card issuing to 100 countries by year-end 2026. The source does not state that the planned 100-country expansion is already live. ([Stripe supported currencies](https://docs.stripe.com/currencies); [Stripe October 2026 update](https://stripe.com/blog/new-ways-for-fintechs-to-move-money-and-expand-globally))",
-      "embedded_finance_capabilities": "Yes. Connect, Treasury, Issuing, and Global Payouts can be combined for platform-fintech products. Global Payouts can be embedded through hosted forms or APIs; the October 2026 update adds stablecoin-funded card programs using custodial or noncustodial wallets or Stripe financial accounts, with automatic local-currency conversion at purchase. ([Stripe October 2026 update](https://stripe.com/blog/new-ways-for-fintechs-to-move-money-and-expand-globally); [Stripe OUSD launch](https://stripe.com/newsroom/news/ousd-is-now-available-on-stripe))",
+      "embedded_finance_capabilities": "Yes. Connect, Treasury, Issuing, and Global Payouts can be combined for platform-fintech products. Global Payouts can be embedded through hosted forms or APIs; the October 2026 update adds stablecoin-funded card programs using custodial or noncustodial wallets or Stripe financial accounts. Treasury for agents adds agent access to balances, invoice payments, account transfers, and currency conversion, with business controls for account/data access, read versus action permissions, and human approvals. Agent card creation and spending limits were described as coming soon; no general-availability date or eligibility schedule was stated. ([Stripe October 2026 update](https://stripe.com/blog/new-ways-for-fintechs-to-move-money-and-expand-globally); [Stripe Treasury for agents](https://stripe.com/newsroom/news/treasury-for-agents); [Stripe OUSD launch](https://stripe.com/newsroom/news/ousd-is-now-available-on-stripe))",
       "api_first": "Yes. Stripe's entire partner ecosystem is built around API integration (Payment Intents, Connect, Checkout, Payment Element, webhooks). ([Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
       "deal_registration": "Yes. Services-track Partner and Premier Partner tiers both have 'Deal registration to request co-selling support' as a stated benefit. ([Stripe Services partners docs](https://docs.stripe.com/partners/services))",
       "mdf_available": "Yes. Both Partner and Premier tiers in the Services track are eligible to request market development funds (MDF); Premier Partners in the SaaS track get MDF as an added benefit. ([Stripe Services partners docs](https://docs.stripe.com/partners/services); [Stripe SaaS platform partners docs](https://docs.stripe.com/partners/platforms))",
       "annual_partner_fee": "No standard published fee for the core Partner Ecosystem; one third-party affiliate resource cites a legacy 'Stripe Verified Partner Program' with a $250/year fee, but this is not corroborated on Stripe's current official pages. ([Wise blog on Stripe affiliate program](https://wise.com/gb/blog/stripe-affiliate-program))",
       "ecosystem_size": "Not disclosed as a specific partner count on official pages; described as 'thousands of trusted partners around the world.' ([Stripe Partner Ecosystem page](https://stripe.com/partners))",
       "recent_program_changes": [
+        {
+          "date": "2026-10-21",
+          "change": "Stripe announced Treasury for agents, enabling businesses to use agents to check balances, pay invoices, transfer funds between accounts, and convert currencies. Businesses choose which accounts/data agents can access, whether they can read or take action, and when human approval is required. Agent card creation and spending limits were described as coming soon; no general-availability date or eligibility schedule was stated.",
+          "source": "https://stripe.com/newsroom/news/treasury-for-agents"
+        },
         {
           "date": "2026-10-16",
           "change": "Stripe announced instant stablecoin payouts to recipients in 160 markets, available from the Dashboard and through Global Payouts hosted forms or APIs. It also announced stablecoin card issuing in 27 EU countries, bringing availability to more than 65 countries worldwide, with 100 countries planned by year-end 2026. Cards can draw from custodial or noncustodial wallets or Stripe financial accounts; local-currency conversion occurs at purchase.",
@@ -149,6 +154,10 @@
         {
           "label": "stripe.com update",
           "url": "https://stripe.com/blog/new-ways-for-fintechs-to-move-money-and-expand-globally"
+        },
+        {
+          "label": "Stripe Treasury for agents (October 21, 2026)",
+          "url": "https://stripe.com/newsroom/news/treasury-for-agents"
         }
       ]
     },
@@ -169,13 +178,18 @@
       "revenue_share_model": "Custom / negotiated. Technology partners 'may also be eligible for revenue-sharing opportunities based on merchant transaction volume'; Service partners can be eligible for implementation funds; a separate referral program rewards partners for bringing new customers or leads. Specific percentages are not publicly disclosed. ([Adyen Partner Program launch announcement](https://www.adyen.com/press-and-media/partner-program-launch))",
       "fx_markup_transparency": "Partial. Adyen markets 'transparent, straightforward' pricing without hidden fees for its Adyen for Platforms product (per third-party analysis), and for Dynamic Currency Conversion Adyen recently expanded support to 25 additional currencies, but Adyen's own partner pages do not detail FX markup disclosure requirements for partners or sub-merchants. ([Adyen DCC currency expansion](https://www.adyen.com/the-latest/dynamic-currency-conversion-now-supports-25-additional-currencies); [Sharetribe overview of Adyen for Platforms](https://www.sharetribe.com/academy/marketplace-payments/adyen-for-platforms-overview/))",
       "cross_border_coverage": "Adyen for Platforms supports payouts in 15+ currencies across 35 countries; broader acquiring supports nearly 100 countries; Wero is being introduced across France, Belgium, Luxembourg, Germany, the Netherlands, and Austria. ([Sharetribe overview of Adyen for Platforms](https://www.sharetribe.com/academy/marketplace-payments/adyen-for-platforms-overview/); [Adyen Wero guide](https://www.adyen.com/knowledge-hub/wero))",
-      "embedded_finance_capabilities": "Yes — Embedded Payments, Issuing, Accounts, and Capital. The October 2026 Sabre partnership embeds Adyen Terminal API payments in airline airport workflows for check-in and ancillary services; the source does not specify a new geography or a broader rollout beyond Sabre airport-front-end users. ([Adyen embedded finance](https://www.adyen.com/knowledge-hub/embedded-finance); [Adyen/Sabre](https://www.adyen.com/knowledge-hub/adyen-and-sabre-partner-to-modernize-airport-payments-at-check-in))",
+      "embedded_finance_capabilities": "Yes — Embedded Payments, Issuing, Accounts, and Capital. The October 2026 Sabre partnership embeds Adyen Terminal API payments in airline airport workflows for check-in and ancillary services. Adyen's November 4, 2026 page reports Fresha Capital live in the United States, United Kingdom, Australia, Canada, Netherlands, Finland, and Sweden, with more than $5.5 million in loans issued to date; the launch was originally announced February 3, 2026. Adyen says it takes lending/credit risk and platforms can use white-label components or APIs; no additional markets or supported currencies are named. ([Adyen embedded finance](https://www.adyen.com/knowledge-hub/embedded-finance); [Adyen/Sabre](https://www.adyen.com/knowledge-hub/adyen-and-sabre-partner-to-modernize-airport-payments-at-check-in); [Adyen/Fresha Capital](https://www.adyen.com/press-and-media/adyen-fresha-embedded-finance-capital-launch))",
       "api_first": "Yes. Adyen is built on a 'single platform and single API' approach across geographies and channels (per Forrester Wave Q1 2024, cited on Adyen's own partner page). ([Adyen Partners page](https://www.adyen.com/partners))",
       "deal_registration": "Not explicitly disclosed as 'deal registration' on public pages, though the program includes referral rewards and co-selling support structures. ([Adyen Partner Program launch announcement](https://www.adyen.com/press-and-media/partner-program-launch))",
       "mdf_available": "Yes. Top-tier partners gain access to dedicated marketing support and market development funds (MDF) to fuel joint campaigns. ([Adyen Partner Program launch announcement](https://www.adyen.com/press-and-media/partner-program-launch))",
       "annual_partner_fee": "Not publicly disclosed.",
       "ecosystem_size": "Not disclosed as a specific number on official pages; third-party partner-tracking site Partnerbase lists dozens of named technology/channel partners including Microsoft, Salesforce, SAP, Adobe, Oracle, and Shopify. ([Partnerbase Adyen partnerships](https://www.partnerbase.com/adyen))",
       "recent_program_changes": [
+        {
+          "date": "2026-11-04",
+          "change": "Adyen's November 4 page reports that Fresha Capital is live in the United States, United Kingdom, Australia, Canada, Netherlands, Finland, and Sweden, with more than $5.5 million in loans issued to date. The embedded-capital launch was originally announced on February 3, 2026; Adyen says the platform-partner model uses pre-approved offers, Adyen retains lending/credit risk, and platforms can integrate via white-label components or API. No other markets or supported currencies are named.",
+          "source": "https://www.adyen.com/press-and-media/adyen-fresha-embedded-finance-capital-launch"
+        },
         {
           "date": "2026-10-28",
           "change": "Adyen and Sabre announced an integration embedding Adyen Terminal API payments in Sabre's Electronic Payment Gateway and Mosaic Digital Workspace Air, supporting airport check-in and airline ancillary sales such as baggage and seat upgrades. The release names airlines using Sabre's airport front-end as the target; it does not specify a new country rollout.",
@@ -272,6 +286,10 @@
         {
           "label": "www.adyen.com update",
           "url": "https://www.adyen.com/knowledge-hub/adyen-and-sabre-partner-to-modernize-airport-payments-at-check-in"
+        },
+        {
+          "label": "Adyen/Fresha Capital: seven-market status and lending volume (page published November 4)",
+          "url": "https://www.adyen.com/press-and-media/adyen-fresha-embedded-finance-capital-launch"
         }
       ]
     },
@@ -515,13 +533,18 @@
       "revenue_share_model": "Custom / negotiated. Referral Partners and Consultants 'earn commissions'; ISVs 'earn revenue from their transactions' by embedding payments and can also become ISO payment partners to monetize their platform. No public percentage figures are disclosed. ([Rapyd Partner Programme page](https://www.rapyd.net/partners/))",
       "fx_markup_transparency": "Not publicly disclosed for partners or end-customers on official pages.",
       "cross_border_coverage": "Accept 150+ currencies via cards, e-wallets, bank transfers and cash; send payouts to 190+ countries in 120+ currencies; hold/settle funds in 65-70+ currencies; direct acquiring/issuing licenses in 40+ countries (UK, Europe, Israel, Singapore, Hong Kong, plus 6 Latin American countries post-PayU acquisition); 900+ local payment methods across 100+ countries. ([Rapyd 2025 Overview PDF](https://go.rapyd.net/hubfs/2025_Gated_Content/2025-Rapyd_Overview.pdf); [Rapyd Global Payments Network docs](https://docs.rapyd.net/en/rapyd-platforms.html))",
-      "embedded_finance_capabilities": "Yes. Rapyd offers embedded fintech capabilities including multi-currency business accounts (Wallet Infrastructure), card issuing (10+ markets), Open Banking at Checkout, automatic settlements, POS/SoftPOS, and — as of September 2025 — Stablecoin Payment Solutions for accepting and settling in USDC/USDT. ([Rapyd Embedded Fintech page](https://www.rapyd.net/solutions/embedded-fintech/); [FXC Intelligence on Rapyd's stablecoin launch](https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview))",
+      "embedded_finance_capabilities": "Yes. Rapyd offers embedded fintech capabilities including multi-currency business accounts (Wallet Infrastructure), card issuing (10+ markets), Open Banking at Checkout, automatic settlements, POS/SoftPOS, and Stablecoin Payment Solutions for accepting and settling in USDC/USDT. On October 11, 2026, Partner Portal tools added device pairing, merchant-member/report access, and direct switching into a merchant Client Portal; related API/webhook updates included service-charge fee controls and wallet-creation success/failure events. The update did not state a change to tiers, revenue share, or coverage. ([Rapyd Embedded Fintech page](https://www.rapyd.net/solutions/embedded-fintech/); [Rapyd merchant tools and wallet webhooks](https://www.rapyd.net/blog/rapyd-decoded-merchant-tools-wallet-webhooks/); [FXC Intelligence on Rapyd's stablecoin launch](https://www.fxcintel.com/research/reports/ct-rapyd-stablecoin-payment-solutions-interview))",
       "api_first": "Yes. Rapyd explicitly highlights API-based onboarding for ISOs and a single unified API for global payments, payouts, and virtual accounts. ([Rapyd Partner Programme page](https://www.rapyd.net/partners/))",
       "deal_registration": "Not publicly disclosed.",
       "mdf_available": "Not publicly disclosed.",
       "annual_partner_fee": "Not publicly disclosed.",
       "ecosystem_size": "250,000+ merchant clients globally (post-PayU acquisition); ~1,600 employees; licensed/regulated in 41 countries. ([Business Wire on Rapyd/PayU GPO acquisition](https://www.businesswire.com/news/home/20230731625413/en/Rapyd-Acquires-PayU-GPO-to-Expand-Fintech-and-Payments-Solutions-Globally))",
       "recent_program_changes": [
+        {
+          "date": "2026-10-11",
+          "change": "Rapyd added Partner Portal tools for pairing a merchant payment device, viewing/adding merchant members, viewing merchant reports, and switching into a merchant Client Portal. Other additions include ISO-API controls to update/retrieve merchant service-charge fees on agreements, wallet-created and wallet-creation-failed webhooks, and a merchant_reference_id parameter for Capture Payment. The update did not state changes to partner tiers, revenue share, or service coverage.",
+          "source": "https://www.rapyd.net/blog/rapyd-decoded-merchant-tools-wallet-webhooks/"
+        },
         {
           "date": "2025-03-14",
           "change": "Rapyd completed its ~$610M acquisition of PayU's Global Payment Organisation (Latin America and Africa), expanding card acquiring to 6 Latin American countries (Mexico, Brazil, Argentina, Chile, Colombia, Peru) and market access into Nigeria and South Africa.",
@@ -569,6 +592,10 @@
         {
           "label": "Business Wire: Rapyd Acquires PayU GPO",
           "url": "https://www.businesswire.com/news/home/20230731625413/en/Rapyd-Acquires-PayU-GPO-to-Expand-Fintech-and-Payments-Solutions-Globally"
+        },
+        {
+          "label": "Rapyd merchant tools and wallet webhooks (October 11, 2026)",
+          "url": "https://www.rapyd.net/blog/rapyd-decoded-merchant-tools-wallet-webhooks/"
         }
       ]
     },
@@ -584,14 +611,19 @@
       "tiers": [],
       "revenue_share_model": "Current partner-page terms describe recurring revenue for each referred customer, with revenue share increasing as partner volume grows; exact rates are not disclosed. ([Nium Partners](https://www.nium.com/partners))",
       "fx_markup_transparency": "Not publicly disclosed on the partner program page.",
-      "cross_border_coverage": "190+ countries / 100+ currencies. Nium announced that RedotPay will use its global off-ramp network for stablecoin-to-fiat conversion and sending/spending; the announcement gives no rollout date or specific markets. Existing Nium USDC funding features remain limited to the stated eligible corporate clients and markets. ([Nium/RedotPay](https://www.nium.com/newsroom/nium-redotpay-partnership); [Nium USDC funding](https://www.nium.com/newsroom/nium-usdc-funding-global-payouts))",
-      "embedded_finance_capabilities": "Yes. Nium embeds multi-currency accounts, FX, bulk payouts, and card programs. The RedotPay partnership adds access to Nium off-ramp infrastructure for stablecoin-to-fiat conversion and sending/spending, but no rollout date or eligible markets are stated. ([Nium Partners](https://www.nium.com/partners); [Nium/RedotPay](https://www.nium.com/newsroom/nium-redotpay-partnership))",
+      "cross_border_coverage": "190+ countries / 100+ currencies. Nium's November 4, 2026 update added selectable payout-rail preferences across EUR, GBP, HKD, SGD, AUD, CAD, AED, and MYR; if a requested rail is unavailable, the payment is rejected rather than downgraded. New local funding options include CHF pay-ins via Switzerland's SIC system from Switzerland and Liechtenstein, and AUD PayTo direct debit using PayID. These are added funding/routing options, not a stated increase to Nium's overall country/currency coverage. ([Nium October 2026 product update](https://www.nium.com/blog/new-at-nium-october-2026))",
+      "embedded_finance_capabilities": "Yes. Nium embeds multi-currency accounts, FX, bulk payouts, and card programs, and its recent product update adds partner-selectable payout rails across eight named currencies, payout validation and cancellation APIs, CHF local pay-ins from Switzerland/Liechtenstein, and AUD PayTo/PayID funding. A transfer can identify up to six upstream originating financial institutions for automated sanctions/AML screening. Nium described cancellation as available through compliance completion; no FX changes were stated. ([Nium Partners](https://www.nium.com/partners); [Nium October 2026 product update](https://www.nium.com/blog/new-at-nium-october-2026))",
       "api_first": "Yes. Nium offers 'One API' for money movement plus flexible interfaces (APIs/Portal) and streamlined or tailored integrations. ([Nium Partners page](https://www.nium.com/partners))",
       "deal_registration": "Not publicly disclosed.",
       "mdf_available": "Not publicly disclosed.",
       "annual_partner_fee": "Not publicly disclosed.",
       "ecosystem_size": "1,000+ companies on the Nium payments infrastructure. ([Nium Partners page](https://www.nium.com/partners))",
       "recent_program_changes": [
+        {
+          "date": "2026-11-04",
+          "change": "Nium's October product update added selectable payout-rail preferences across EUR, GBP, HKD, SGD, AUD, CAD, AED, and MYR; an unavailable requested rail is rejected rather than downgraded. It also described payout validation and cancellation APIs, local CHF pay-ins via Switzerland's SIC system from Switzerland and Liechtenstein, AUD PayTo direct debit using PayID, and screening up to six upstream originating institutions. No FX change was stated.",
+          "source": "https://www.nium.com/blog/new-at-nium-october-2026"
+        },
         {
           "date": "2026-10-08",
           "change": "Nium announced that RedotPay will use Nium's global off-ramp infrastructure to extend stablecoin-to-fiat conversion and support sending and spending stablecoins. Nium cites a network of 100 currencies across 190 countries; the announcement does not identify specific launch markets or a rollout date.",
@@ -680,6 +712,10 @@
         {
           "label": "www.nium.com update",
           "url": "https://www.nium.com/newsroom/nium-redotpay-partnership"
+        },
+        {
+          "label": "Nium October 2026 product update (published November 4)",
+          "url": "https://www.nium.com/blog/new-at-nium-october-2026"
         }
       ]
     },
@@ -782,8 +818,8 @@
       "tiers": [],
       "revenue_share_model": "Custom / negotiated. dLocal advertises 'commissions' and 'a new revenue stream' for partners, and a referral program that pays commissions per successful referral, but does not publish specific percentages. No partner exclusivity is required. ([dLocal Partners page](https://dlocal.com/partners/))",
       "fx_markup_transparency": "Not publicly disclosed; dLocal references 'seamless FX' as part of its single-API offering without detailing markup disclosure practices.",
-      "cross_border_coverage": "Operates in 60+ countries and supports 900+ local payment methods. Western Union/dLocal remittance payouts are first live in Cameroon through local wallets; Nigeria is being explored. A separate Belvo partnership adds announced recurring bank-debit collections in Mexico, with no launch date stated. ([dLocal/Western Union](https://www.dlocal.com/guides/dlocal-and-western-union-expand-their-partnership-to-cover-remittance-payouts-in-africa/); [dLocal/Belvo](https://www.dlocal.com/es/press-releases/pagos-recurrentes-con-menos-friccion-y-cargas-operativas-la-alianza-entre-belvo-y-dlocal/))",
-      "embedded_finance_capabilities": "Expanded beyond local acceptance: Stablecoin Full provides stablecoin collection/conversion/payout and treasury orchestration; dMoRe adds merchant of record services; the October 2026 updates add live Western Union remittance payouts in Cameroon via local wallets and an announced Belvo recurring bank-debit capability in Mexico (no go-live date stated). ([dLocal/Western Union](https://www.dlocal.com/guides/dlocal-and-western-union-expand-their-partnership-to-cover-remittance-payouts-in-africa/); [dLocal/Belvo](https://www.dlocal.com/es/press-releases/pagos-recurrentes-con-menos-friccion-y-cargas-operativas-la-alianza-entre-belvo-y-dlocal/); [dLocal Stablecoin Full](https://www.dlocal.com/press-releases/dlocal-launches-the-most-seamless-stablecoin-integration-for-payments-in-emerging-markets/))",
+      "cross_border_coverage": "Operates in 60+ countries and supports 900+ local payment methods. Western Union/dLocal remittance payouts are first live in Cameroon through local wallets; Nigeria is being explored. Belvo announced recurring bank-debit collections in Mexico, with no launch date stated. dLocal's October 1 LinkedIn collaboration adds local-currency card payments for LinkedIn members in Brazil, Mexico, Colombia, and Chile; specific currencies and the go-live date were not stated. ([dLocal/LinkedIn](https://www.dlocal.com/press-releases/dlocal-provides-local-payments-for-linkedin-users-across-brazil-mexico-colombia-and-chile/); [dLocal/Western Union](https://www.dlocal.com/guides/dlocal-and-western-union-expand-their-partnership-to-cover-remittance-payouts-in-africa/); [dLocal/Belvo](https://www.dlocal.com/es/press-releases/pagos-recurrentes-con-menos-friccion-y-cargas-operativas-la-alianza-entre-belvo-y-dlocal/))",
+      "embedded_finance_capabilities": "Expanded beyond local acceptance: Stablecoin Full provides stablecoin collection/conversion/payout and treasury orchestration; dMoRe adds merchant-of-record services; Western Union payouts are live in Cameroon; Belvo announced recurring Mexico bank debits without a stated go-live date. The LinkedIn collaboration adds localized card acceptance in Brazil, Mexico, Colombia, and Chile, but its launch timing is not stated. ([dLocal/LinkedIn](https://www.dlocal.com/press-releases/dlocal-provides-local-payments-for-linkedin-users-across-brazil-mexico-colombia-and-chile/); [dLocal/Western Union](https://www.dlocal.com/guides/dlocal-and-western-union-expand-their-partnership-to-cover-remittance-payouts-in-africa/); [dLocal/Belvo](https://www.dlocal.com/es/press-releases/pagos-recurrentes-con-menos-friccion-y-cargas-operativas-la-alianza-entre-belvo-y-dlocal/); [dLocal Stablecoin Full](https://www.dlocal.com/press-releases/dlocal-launches-the-most-seamless-stablecoin-integration-for-payments-in-emerging-markets/))",
       "api_first": "Yes. dLocal explicitly manages local payments, FX, and cross-border transactions 'through one single API.' ([dLocal Partners page](https://dlocal.com/partners/))",
       "deal_registration": "Not publicly disclosed.",
       "mdf_available": "Not publicly disclosed.",
@@ -799,6 +835,11 @@
           "date": "2026-10-15",
           "change": "dLocal and Western Union expanded their remittance relationship from collections to payout in Africa. Cameroon is the first live market, with payouts through local wallets; Nigeria is among the markets being explored, not yet announced as live.",
           "source": "https://www.dlocal.com/guides/dlocal-and-western-union-expand-their-partnership-to-cover-remittance-payouts-in-africa/"
+        },
+        {
+          "date": "2026-10-01",
+          "change": "dLocal announced a LinkedIn collaboration for local-currency card payments for LinkedIn members in Brazil, Mexico, Colombia, and Chile. The announcement does not name specific currencies or state a go-live date; dLocal described the initial footprint as a starting point for potential regional expansion.",
+          "source": "https://www.dlocal.com/press-releases/dlocal-provides-local-payments-for-linkedin-users-across-brazil-mexico-colombia-and-chile/"
         },
         {
           "date": "2026-09-10",
@@ -874,6 +915,10 @@
         {
           "label": "www.dlocal.com update",
           "url": "https://www.dlocal.com/guides/dlocal-and-western-union-expand-their-partnership-to-cover-remittance-payouts-in-africa/"
+        },
+        {
+          "label": "dLocal/LinkedIn local payments in four Latin American markets (October 1, 2026)",
+          "url": "https://www.dlocal.com/press-releases/dlocal-provides-local-payments-for-linkedin-users-across-brazil-mexico-colombia-and-chile/"
         }
       ]
     },
@@ -903,6 +948,11 @@
       "annual_partner_fee": "Not publicly disclosed for integration partners (some Payoneer end-customer products, like the business card, carry a separate ~$29.95 annual fee unrelated to partnering).",
       "ecosystem_size": "1,500+ affiliate partners (per regional Payoneer affiliate page); 133 technology/channel partnerships tracked by third-party site Partnerbase; nearly 2 million active customers across 190+ countries. ([Payoneer Ukraine affiliate page](https://www.payoneer.com/uk/affiliate-program/); [Partnerbase Payoneer partnerships](https://www.partnerbase.com/payoneer); [Payoneer 2025 Annual Report](https://investor.payoneer.com/static-files/0aa365d7-63dd-4d29-8737-d26dc18cd739))",
       "recent_program_changes": [
+        {
+          "date": "2026-11-05",
+          "change": "Payoneer's Q3 2026 results reiterated that stockholders approved the Nuvei merger proposal on September 14, stated that the company was making progress obtaining necessary regulatory approvals, and continued to target a mid-2027 close. The release did not report closing or identify any newly received transaction-related regulatory approval; the Canada and Israel licenses discussed are Payoneer payment licenses, not Nuvei merger approvals.",
+          "source": "https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-third-quarter-2026-financial-results"
+        },
         {
           "date": "2026-10-13",
           "change": "Payoneer Canada Limited registered with the Bank of Canada as a payment service provider under the Retail Payment Activities Act, supporting its continued provision of regulated payment services and local-currency collection in Canada.",
@@ -1009,6 +1059,10 @@
         {
           "label": "investor.payoneer.com update",
           "url": "https://investor.payoneer.com/news-releases/news-release-details/payoneer-canada-registers-payment-service-provider-further"
+        },
+        {
+          "label": "Payoneer Q3 2026 results and Nuvei status (November 5)",
+          "url": "https://investor.payoneer.com/news-releases/news-release-details/payoneer-reports-third-quarter-2026-financial-results"
         }
       ]
     },
@@ -1025,13 +1079,18 @@
       "revenue_share_model": "Custom / negotiated. Historical partner materials describe 'Broker/Referral, Value-Added Resellers (Affiliates), and OEM options' with 'custom pricing by corridor and payment method' rather than a published percentage. ([Corpay Payment Solutions Partner Placemat, 2021](https://www.corpay.com/pdfs/integrated-payments/corpay-payment-solutions-partner-placemat-2021.pdf))",
       "fx_markup_transparency": "Not publicly disclosed as a formal standard; Corpay markets 'transparent' cross-border payments experience and forward-contract rate locking for clients (e.g., 45-60 day forward contracts), but does not publish specific FX markup disclosure rules for partners or end-customers. ([AMI Strategies/Corpay partnership announcement](https://amistrategies.com/cambridge-global-payments-announces-partnership-ami-strategies/))",
       "cross_border_coverage": "145+ currencies with delivery to 200+ countries (per partner integration listings); more broadly, Corpay processes payments in more than 160 currencies around the world; 4.1M+ payments annually and 21,000+ customers on the Cross-Border platform; partners with 100+ correspondent banks across 6 continents. ([Microsoft AppSource Corpay Cross-Border listing](https://appsource.microsoft.com/en-in/product/dynamics-365-for-operations/fleetcortechnologiesinc1637002052602.corpay-cross-border?tab=overview); [Corpay Cross-Border page](https://www.corpay.com/cross-border); [Mastercard/Corpay partnership announcement](https://investor.mastercard.com/investor-news/investor-news-details/2025/Mastercard-and-Corpay-Launch-Strategic-Partnership-in-Cross-Border-Payments/default.aspx))",
-      "embedded_finance_capabilities": "Expanded. Corpay now offers embedded stablecoin wallets and settlement through BVNK, including hold/send/receive/store/convert capabilities alongside fiat balances and treasury use; blockchain settlement also runs through J.P. Morgan Kinexys. ([Corpay/BVNK wallets](https://investor.corpay.com/news-releases/news-release-details/corpay-partners-bvnk-add-stablecoin-wallets-global-customers/); [Corpay blockchain settlement](https://investor.corpay.com/news-releases/news-release-details/corpay-signs-jp-morgan-and-bvnk-blockchain-infrastructure/))",
+      "embedded_finance_capabilities": "Expanded. Corpay offers embedded stablecoin wallets and settlement through BVNK, including hold/send/receive/store/convert capabilities alongside fiat balances and treasury use; blockchain settlement also runs through J.P. Morgan Kinexys. Corpay's October 29, 2026 newsletter described a Temenos collaboration to help financial institutions offer cross-border and multi-currency services. Temenos describes a single API connection for FX flows and access to Corpay payment processing across 145+ currencies and 200+ countries; neither page states a launch date or confirms live availability. ([Corpay/BVNK wallets](https://investor.corpay.com/news-releases/news-release-details/corpay-partners-bvnk-add-stablecoin-wallets-global-customers/); [Corpay blockchain settlement](https://investor.corpay.com/news-releases/news-release-details/corpay-signs-jp-morgan-and-bvnk-blockchain-infrastructure/); [Corpay October newsletter](https://cb.corpay.com/newsletter/october-2026-customer-newsletter); [Temenos/Corpay solution listing](https://www.temenos.com/solution-provider/corpay-cross-border-corpay-cross-border-solutions/))",
       "api_first": "Partial. Corpay supports 'payment execution through basic file upload or API' — API is an option but not positioned as API-first/API-only the way Stripe or Wise are. ([Corpay Payment Solutions Partner Placemat, 2021](https://www.corpay.com/pdfs/integrated-payments/corpay-payment-solutions-partner-placemat-2021.pdf))",
       "deal_registration": "Not publicly disclosed.",
       "mdf_available": "Not publicly disclosed.",
       "annual_partner_fee": "Not publicly disclosed.",
       "ecosystem_size": "21,000+ customers on the Cross-Border platform; 100+ correspondent banking and counterparty trading relationships across 6 continents. ([Corpay Cross-Border page](https://www.corpay.com/cross-border); [Corpay Corporate Placemat 2023 PDF](https://assets.ctfassets.net/h83dujey17us/1IkolXWa3LQhnQrUoves82/7c6c8acc92a4fe2c9308de8fb03271c1/Corpay_-_Corporate_Placemat_-_2023.pdf))",
       "recent_program_changes": [
+        {
+          "date": "2026-10-29",
+          "change": "Corpay's October newsletter described a collaboration with Temenos to help financial institutions offer cross-border banking and multi-currency services. Temenos' solution listing describes a single API connection for FX flows and access to Corpay's payment processing across 145+ currencies and 200+ countries; neither page states a launch date or whether the integration is live.",
+          "source": "https://cb.corpay.com/newsletter/october-2026-customer-newsletter"
+        },
         {
           "date": "2026-05-11",
           "change": "Corpay partnered with BVNK to add embedded stablecoin wallets and settlement: customers can hold, send, receive, store, and convert stablecoins alongside fiat balances, while Corpay uses the rails for treasury and cross-border liquidity.",
@@ -1101,6 +1160,14 @@
         {
           "label": "investor.corpay.com update",
           "url": "https://investor.corpay.com/news-releases/news-release-details/corpay-partners-bvnk-add-stablecoin-wallets-global-customers/"
+        },
+        {
+          "label": "Corpay October 2026 customer newsletter (Temenos collaboration)",
+          "url": "https://cb.corpay.com/newsletter/october-2026-customer-newsletter"
+        },
+        {
+          "label": "Temenos solution listing: Corpay Cross-Border",
+          "url": "https://www.temenos.com/solution-provider/corpay-cross-border-corpay-cross-border-solutions/"
         }
       ]
     },
